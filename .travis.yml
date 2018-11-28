@@ -13,6 +13,7 @@ branches:
 install:
   - npm install
   - npm run build
+  - printf "airship.tf\n" > .vuepress/dist/CNAME
 
 script:
   - echo "Skipping tests"
@@ -20,7 +21,7 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_ACCESS_TOKEN  # Set in travis-ci.org dashboard, marked secure https://docs.travis-ci.com/user/deployment/pages/#Setting-the-GitHub-token
+  github-token: $GITHUB_ACCESS_TOKEN 
   target-branch: gh-pages
   local-dir: .vuepress/dist
   on:

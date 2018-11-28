@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: Get Started →
-actionLink: /guide/
+actionLink: /getstarted/
 ---
 
 <div class="features">
@@ -52,8 +52,15 @@ actionLink: /guide/
 </div>
 
 
+::: tip
+tip field..
+:::
 
-::: warning WARNING
-You might not switch to Kubernetes after you've used this modules ;-)
+::: danger
+danger field.. 
+:::
+
+::: warning 
+Warning field
 :::
 
