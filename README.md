@@ -53,7 +53,7 @@ actionLink: /guide/
 
 
 
-::: warning KUBERNETES
-You might not switch to Kubernetes after you've used this modules 
+::: warning WARNING
+You might not switch to Kubernetes after you've used this modules ;-)
 :::
 
