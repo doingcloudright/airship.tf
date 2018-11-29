@@ -11,11 +11,11 @@ actionLink: /getstarted/
   </div>
   <div class="feature">
     <h2>Fargate</h2>
-    <p>Airship modules supports both Fargate AND EC2 as ECS Cluster</p>
+    <p>Airship modules support both Fargate AND EC2 as ECS Cluster</p>
   </div>
   <div class="feature">
     <h2>Fully-integrated into AWS</h2>
-    <p>ECS Services are can be tailored to have minimal rights to other AWS components.</p>
+    <p>ECS Services can be tailored to have minimal rights to other AWS components.</p>
   </div>
   <div class="feature">
     <h2>ALB &amp; NLB Support </h2>

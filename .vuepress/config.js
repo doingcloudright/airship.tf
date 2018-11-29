@@ -13,18 +13,21 @@ module.exports = {
     ],
     sidebar : {
       '/getstarted/' : [
-        'gogo',
-        'preparation',
-      ],
-      '/something_else/' : [
         '',
-        'something',
+        'preparation',
       ],
     },
     repo : 'blinkist/terraform-aws-airship-ecs-service',
     editLinks : true,
   },
-  plugins : {
-    'sitemap' : {hostname : 'https://airship.tf'},
-  }
+  plugins : [
+    [
+      '@vuepress/pwa', {
+        serviceWorker : true,
+        updatePopup :
+            {updatePopup : {message : "new content", buttonText : "refresh"}}
+      }
+    ],
+    [ '@vuepress/search', {searchMaxSuggestions : 10} ],
+  ],
 }
