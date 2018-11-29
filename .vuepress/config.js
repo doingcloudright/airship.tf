@@ -8,6 +8,7 @@ module.exports = {
     logo : '/airship.png',
     nav : [
       {text : 'Home', link : '/'},
+      {text : 'Introduction', link : '/introduction/'},
       {text : 'Get Started', link : '/getstarted/'},
       {text : 'Docs', link : '/docs/'},
     ],
