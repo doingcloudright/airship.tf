@@ -15,7 +15,6 @@ module.exports = {
     sidebar : {
       '/getstarted/' : [
         '',
-        'preparation',
       ],
     },
     repo : 'blinkist/terraform-aws-airship-ecs-service',

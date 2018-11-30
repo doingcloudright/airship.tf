@@ -11,6 +11,7 @@ branches:
   - master
 
 install:
+  - npm install -D "@vuepress/plugin-search"
   - npm install
   - npm run build
   - printf "airship.tf\n" > .vuepress/dist/CNAME
