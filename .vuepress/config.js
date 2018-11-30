@@ -3,18 +3,22 @@ module.exports = {
   description : 'Home of Terraform Airship',
   base : '/',
   ga : 'UA-129919577-1',
-  markdown : {lineNumbers : true},
+  markdown : {
+    extendMarkdown : md => { md.use(require('markdown-it-task-lists')) },
+  },
   themeConfig : {
     logo : '/airship.png',
     nav : [
       {text : 'Home', link : '/'},
       {text : 'Introduction', link : '/introduction/'},
-      {text : 'Get Started', link : '/getstarted/'},
+      {text : 'Getting Started', link : '/getting_started/'},
       {text : 'Docs', link : '/docs/'},
     ],
     sidebar : {
-      '/getstarted/' : [
+      '/getting_started/' : [
         '',
+        'preparation',
+        'airship',
       ],
     },
     repo : 'blinkist/terraform-aws-airship-ecs-service',

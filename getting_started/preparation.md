@@ -2,20 +2,9 @@
 sidebarDepth: 2
 ---
 
-# Get Started
+# Preparation
 
-## Introduction
-
-In this introduction you will learn how to setup an ECS Service on your AWS Acount using Terraform. In this introduction you will setup
-a service on AWS Fargate, which is the 'serverless' version of ECS. For this example we need a Load Balancer.. 
-
-::: warning
-AWS components incur costs, please lookup pricing, and don't forget to remove the demo setup after you're done.
-:::
-
-## Preparation
-
-### VPC
+## VPC
 
 For ECS to work it needs a Virtual Private Cloud to run in, there are many proper pre-built Modules which create a VPC and everything related.
 Good examples are [Cloudposse](https://github.com/cloudposse/terraform-aws-vpc) and [terraform-aws-modules](https://github.com/terraform-aws-modules/terraform-aws-vpc) . For this example we use the latter. It's good practice to create public and private subnets, load balancers will reside in the public subnet, the ECS services will be in the private subnets.
@@ -45,7 +34,7 @@ module "vpc" {
 }
 ```
 
-### Security Groups
+## Security Groups
 
 ECS will have network components just like EC2, for this example we need a security group for the load balancer, and one for the ecs service. In this example the load balancer allows traffic to HTTP and HTTPS and is allowed all outgoing traffic.
 
@@ -109,7 +98,7 @@ resource "aws_security_group" "ecs_service_sg" {
 }
 ```
 
-### Route53 Zone
+## Route53 Zone
 
 The ECS Service module by default creates a subdomain in the given zone by the following pattern [name].[domain]. This can be disabled but for this example we will use it. In the preparation step we use a datasource to make sure the zone is there.
 
@@ -124,7 +113,7 @@ This module will create a record inside your existing zone, make sure that there
 :::
 
 
-### ACM SSL Certificate
+## ACM SSL Certificate
 No HTTP service goes unprotected, there are many public modules out there for automatic SSL Certificate registration with ACM. Please create a wildcard certificate in the Region you are using ECS and refer it in this demo setup as:  
 
 ```json
@@ -136,7 +125,7 @@ data "aws_acm_certificate" "cert" {
 ```
 
 
-### Application Load Balancer
+## Application Load Balancer
 
 The ECS Service module can add many ECS Services to the same Application Load Balancer (ALB) by creating hostname based listener rules. For this module to operate with an ALB we need to setup one. We setup a loggin bucket first to make sure the ALB can log to S3.
 
@@ -148,32 +137,31 @@ module "lb_s3_bucket" {
   namespace     = "dcr"
   stage         = "test"
   name          = "lb-s3-bucket"
-  region        = "eu-central-1"
-  force_destroy = yes
+  region        = "<YOUR REGION>"
+  force_destroy = "true"
 }
 
-
-module "alb_shared_services_intra" {
-  source                    = "terraform-aws-modules/alb/aws"
-  version                   = "3.4.0"
-  load_balancer_name        = "ecs-test-lb"
-  security_groups           = ["${aws_security_group.lb_sg.id}"]
-  load_balancer_is_internal = false
-  log_bucket_name           = "${module.lb_s3_bucket.bucket_id}"
-  log_location_prefix       = ""
-  subnets                   = ["${module.vpc.public_subnets}"]
-  tags                      = "${map("Environment", "ECS Test Setup")}"
-  vpc_id                    = "${module.vpc.vpc_id}"
-  https_listeners           = "${list(map("certificate_arn", "${data.aws_acm_certificate.cert.arn}", "port", 443))}"
-  https_listeners_count     = "1"
-  http_tcp_listeners        = "${list(map("port", "80", "protocol", "HTTP"))}"
-  http_tcp_listeners_count  = "1"
-  target_groups             = "${list(map("name", "default-ext", "backend_protocol", "HTTP", "backend_port", "80"))}"
-  target_groups_count       = "1"
-}
+module "alb_shared_services_external" {
+    source                    = "terraform-aws-modules/alb/aws"
+    version                   = "3.4.0"
+    load_balancer_name        = "ecs-external"
+    security_groups           = ["${aws_security_group.lb_sg.id}"]
+    load_balancer_is_internal = false
+    log_bucket_name           = "${module.lb_s3_bucket.bucket_id}"
+    log_location_prefix       = ""
+    subnets                   = ["${module.vpc.public_subnets}"]
+    tags                      = "${map("Environment", "ECS Test Setup")}"
+    vpc_id                    = "${module.vpc.vpc_id}"
+    https_listeners           = "${list(map("certificate_arn", "${data.aws_acm_certificate.cert.arn}", "port", 443))}"
+    https_listeners_count     = "1"
+    http_tcp_listeners        = "${list(map("port", "80", "protocol", "HTTP"))}"
+    http_tcp_listeners_count  = "1"
+    target_groups             = "${list(map("name", "default-ext", "backend_protocol", "HTTP", "backend_port", "80"))}"
+    target_groups_count       = "1"
+  }
 
 ```
 
-### Finally
+## Important
 
 Make sure to run Terraform apply with everything added until now. This will make sure no surprises show up the moment the ECS Service is being created.
