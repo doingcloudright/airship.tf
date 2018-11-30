@@ -7,6 +7,9 @@ module.exports = {
     extendMarkdown : md => { md.use(require('markdown-it-task-lists')) },
   },
   themeConfig : {
+    search : false,
+    searchMaxSuggestions : 10,
+    displayAllHeaders : true,
     logo : '/airship.png',
     nav : [
       {text : 'Home', link : '/'},
@@ -19,6 +22,7 @@ module.exports = {
         '',
         'preparation',
         'airship',
+        'liftoff',
       ],
     },
     repo : 'blinkist/terraform-aws-airship-ecs-service',

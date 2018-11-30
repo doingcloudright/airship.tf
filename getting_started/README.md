@@ -2,7 +2,7 @@
 sidebarDepth: 2
 ---
 
-# Introduction
+# Start
 
 In this introduction you will learn how to setup an ECS Service on your AWS Acount using Terraform. In this introduction you will setup
 a service on AWS Fargate, which is the 'serverless' version of ECS. For this example we need a Load Balancer.. 

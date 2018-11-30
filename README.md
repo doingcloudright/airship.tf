@@ -6,7 +6,7 @@ actionLink: /getting_started/
 
 <div class="features">
   <div class="feature">
-    <h2>5 minutes</h2>
+    <h2>20 minutes</h2>
     <p>Is all you need to have an ECS Service / Cluster running inside your existing Terraform setup.</p>
   </div>
   <div class="feature">
