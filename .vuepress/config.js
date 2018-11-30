@@ -7,8 +7,6 @@ module.exports = {
     extendMarkdown : md => { md.use(require('markdown-it-task-lists')) },
   },
   themeConfig : {
-    search : false,
-    searchMaxSuggestions : 10,
     displayAllHeaders : true,
     logo : '/airship.png',
     nav : [
