@@ -10,7 +10,7 @@ In this introduction you will learn how to setup an ECS Service on your AWS Acou
 a service on AWS Fargate, which is the 'serverless' version of ECS. For this example we need a Load Balancer.. 
 
 ::: warning
-AWS components incur, costs, please lookup pricing, and don't forget to remove the demo setup after you're done
+AWS components incur costs, please lookup pricing, and don't forget to remove the demo setup after you're done.
 :::
 
 ## Preparation
@@ -138,14 +138,38 @@ data "aws_acm_certificate" "cert" {
 
 ### Application Load Balancer
 
+The ECS Service module can add many ECS Services to the same Application Load Balancer (ALB) by creating hostname based listener rules. For this module to operate with an ALB we need to setup one. We setup a loggin bucket first to make sure the ALB can log to S3.
 
-```
-module "lb-s3-bucket" {
-  source  = "cloudposse/lb-s3-bucket/aws"
-  version = "0.1.4"
-  namespace = "cp"
-  stage     = "prod"
-  name      = "cluster"
-  region    = "eu-central-1
+
+```json
+module "lb_s3_bucket" {
+  source        = "cloudposse/lb-s3-bucket/aws"
+  version       = "0.1.4"
+  namespace     = "dcr"
+  stage         = "test"
+  name          = "lb-s3-bucket"
+  region        = "eu-central-1
+  force_destroy = yes
 }
+
+
+module "alb_shared_services_intra" {
+  source                    = "terraform-aws-modules/alb/aws"
+  version                   = "3.4.0"
+  load_balancer_name        = "ecs-test-lb"
+  security_groups           = ["${aws_security_group.lb_sg.id}"]
+  load_balancer_is_internal = false
+  log_bucket_name           = "${module.lb_s3_bucket.bucket_id}"
+  log_location_prefix       = ""
+  subnets                   = ["${module.vpc.public_subnets}"]
+  tags                      = "${map("Environment", "ECS Test Setup")}"
+  vpc_id                    = "${module.vpc.vpc_id}"
+  https_listeners           = "${list(map("certificate_arn", "${data.aws_acm_certificate.cert.arn}", "port", 443))}"
+  https_listeners_count     = "1"
+  http_tcp_listeners        = "${list(map("port", "80", "protocol", "HTTP"))}"
+  http_tcp_listeners_count  = "1"
+  target_groups             = "${list(map("name", "default-ext", "backend_protocol", "HTTP", "backend_port", "80"))}"
+  target_groups_count       = "1"
+}
+
 ```
