@@ -64,16 +64,9 @@ module "fargate_service" {
   awsvpc_subnets            = ["${module.vpc.private_subnets}"]
   awsvpc_security_group_ids = ["${aws_security_group.ecs_service_sg.id}"]
 
-  # load_balancing_enabled sets if a load balancer will be attached to the ecs service / target group
   load_balancing_type = "application"
-
   load_balancing_properties {
-    # The default route53 record type, can be CNAME, ALIAS or NONE  # route53_record_type = "ALIAS"
-
-    # Unique identifier for the weighted IN A Alias Record  # route53_a_record_identifier = "identifier"
-
     # The ARN of the ALB, when left-out the service, 
-    # will not be attached to a load-balance
     lb_arn = "${module.alb_shared_services_external.load_balancer_id}"
 
     # https listener ARN
@@ -88,9 +81,6 @@ module "fargate_service" {
     # The route53 zone for which we create a subdomain
     route53_zone_id = "${data.aws_route53_zone.zone.zone_id}"
 
-    # After which threshold in health check is the task marked as unhealthy, defaults to 3
-    # unhealthy_threshold   = "3"
-
     # health_uri defines which health-check uri the target 
     # group needs to check on for health_check, defaults to /ping
     health_uri = "/"
@@ -99,29 +89,27 @@ module "fargate_service" {
     redirect_http_to_https = true
   }
 
-  # custom_listen_hosts defines extra listener rules to route to the ALB Targetgroup
-  # custom_listen_hosts = ["www.example.com"]
   container_cpu = 256
-
   container_memory = 512
   container_port   = 80
+  bootstrap_container_image = "nginx:stable"
 
-  # force_bootstrap_container_image to true will force the deployment to use var.bootstrap_container_image as container_image
+  # force_bootstrap_container_image to true will 
+  # force the deployment to use var.bootstrap_container_image as container_image
   # if container_image is already deployed, no actual service update will happen
   # force_bootstrap_container_image = false
 
-  bootstrap_container_image = "nginx:stable"
   # Initial ENV Variables for the ECS Task definition
   container_envvars {
     ENV_VARIABLE = "SOMETHING"
   }
   # capacity_properties defines the size in task for the ECS Service.
-  # Without scaling enabled, desired_capacity is the only necessary property, defaults to 2
-  # With scaling enabled, desired_min_capacity and desired_max_capacity define the lower and upper boundary in task size
+  # Without scaling enabled, desired_capacity is the only necessary property
+  # defaults to 2
+  # With scaling enabled, desired_min_capacity and desired_max_capacity 
+  # define the lower and upper boundary in task size
   capacity_properties {
     desired_capacity     = "1"
-    desired_min_capacity = "1"
-    desired_max_capacity = "1"
   }
   # By default we enable KMS and SSM, for this demo we don't need it.
   ssm_enabled = false
