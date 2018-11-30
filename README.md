@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: Get Started →
-actionLink: /getstarted/
+actionLink: /getting_started/
 ---
 
 <div class="features">
@@ -50,17 +50,3 @@ actionLink: /getstarted/
 <div style="text-align: center">
   <Bit/>
 </div>
-
-
-::: tip
-tip field..
-:::
-
-::: danger
-danger field.. 
-:::
-
-::: warning 
-Warning field
-:::
-

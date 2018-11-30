@@ -60,7 +60,6 @@ module "fargate_service" {
 
   fargate_enabled = true
 
-  # AWSVPC Block, with awsvpc_subnets defined the network_mode for the ECS task definition will be awsvpc, defaults to bridge
   awsvpc_enabled            = true
   awsvpc_subnets            = ["${module.vpc.private_subnets}"]
   awsvpc_security_group_ids = ["${aws_security_group.ecs_service_sg.id}"]
@@ -73,7 +72,8 @@ module "fargate_service" {
 
     # Unique identifier for the weighted IN A Alias Record  # route53_a_record_identifier = "identifier"
 
-    # The ARN of the ALB, when left-out the service, will not be attached to a load-balance
+    # The ARN of the ALB, when left-out the service, 
+    # will not be attached to a load-balance
     lb_arn = "${module.alb_shared_services_external.load_balancer_id}"
 
     # https listener ARN
@@ -91,11 +91,9 @@ module "fargate_service" {
     # After which threshold in health check is the task marked as unhealthy, defaults to 3
     # unhealthy_threshold   = "3"
 
-    # health_uri defines which health-check uri the target group needs to check on for health_check, defaults to /ping
+    # health_uri defines which health-check uri the target 
+    # group needs to check on for health_check, defaults to /ping
     health_uri = "/"
-
-    # The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds.
-    # deregistration_delay = "300"
 
     # Creates a listener rule which redirects to https
     redirect_http_to_https = true
