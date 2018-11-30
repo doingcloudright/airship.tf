@@ -15,6 +15,7 @@ install:
   - npm install -D markdown-it-task-lists
   - npm install
   - npm run build
+  - npm run deploy
   - printf "airship.tf\n" > .vuepress/dist/CNAME
 
 script:
