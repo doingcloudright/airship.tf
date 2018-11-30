@@ -120,7 +120,7 @@ data "aws_route53_zone" "zone" {
 ```
 
 ::: warning
-This module will create a record inside your existing zone, make sure that there is no overlap with existing records.
+This module will create a record inside your existing zone, make sure that there is no overlap with existing records. If you create the certificate, it is best to use DNS validation.
 :::
 
 
@@ -148,7 +148,7 @@ module "lb_s3_bucket" {
   namespace     = "dcr"
   stage         = "test"
   name          = "lb-s3-bucket"
-  region        = "eu-central-1
+  region        = "eu-central-1"
   force_destroy = yes
 }
 
@@ -173,3 +173,7 @@ module "alb_shared_services_intra" {
 }
 
 ```
+
+### Finally
+
+Make sure to run Terraform apply with everything added until now. This will make sure no surprises show up the moment the ECS Service is being created.
