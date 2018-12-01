@@ -12,8 +12,6 @@ branches:
 
 install:
   - rm -rf .vuepress/dist
-  - npm install -D "@vuepress/plugin-search"
-  - npm install -D markdown-it-task-lists
   - npm install
   - npm run build
   - printf "airship.tf\n" > .vuepress/dist/CNAME

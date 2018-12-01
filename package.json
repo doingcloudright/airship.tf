@@ -1,5 +1,5 @@
 {
-    "name": "vue-press-demo",
+    "name": "Airship",
     "version": "1.0.0",
     "description": "A demo VuePress site",
     "scripts": {
@@ -10,10 +10,11 @@
     "author": "Maarten van der Hoef",
     "license": "Mozilla Public License Version 2.0",
     "devDependencies": {
-        "@vuepress/plugin-pwa": "^1.0.0-alpha.0",
-        "@vuepress/plugin-search": "^1.0.0-alpha.0",
+        "@vuepress/plugin-pwa": "^1.0.0-alpha.25",
+        "@vuepress/plugin-search": "^1.0.0-alpha.25",
         "push-dir": "^0.4.1",
-        "vuepress": "^0.6.1"
+        "gh-pages": "^2.0.1",
+        "vuepress": "^1.0.0-alpha.25"
     },
     "dependencies": {
         "markdown-it-task-lists": "^2.1.1"
