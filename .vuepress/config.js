@@ -1,7 +1,6 @@
 module.exports = {
   title : '.. ECS made easy',
   description : 'Home of Terraform Airship',
-  base : '/',
   markdown : {
     extendMarkdown : md => { md.use(require('markdown-it-task-lists')) },
   },
