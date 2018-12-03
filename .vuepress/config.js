@@ -10,8 +10,19 @@ module.exports = {
     nav : [
       {text : 'Home', link : '/'},
       {text : 'Introduction', link : '/introduction/'},
-      {text : 'Getting Started', link : '/getting_started/'},
-      {text : 'Docs', link : '/docs/'},
+      {text : 'Getting Started', link : '/getting_started/'}, {
+        text : 'Guide',
+        items : [
+          {text : 'Examples', link : '/'},
+          {
+            text : 'Start',
+            items : [
+              {text : 'ECS Cluster', link : '/guide/ecs_cluster/'},
+              {text : 'ECS Service', link : '/guide/ecs_service/'}
+            ]
+          },
+        ]
+      }
     ],
     sidebar : {
       '/getting_started/' : [
@@ -20,18 +31,21 @@ module.exports = {
         'airship',
         'liftoff',
       ],
+      '/guide/' : [
+        '',
+      ],
+      '/guide/ecs_cluster/' : [
+        {
+          title : 'ECS Cluster',
+          collapasble : false,
+          children : [ '' ],
+        },
+      ],
     },
     repo : 'blinkist/terraform-aws-airship-ecs-service',
     editLinks : true,
   },
   plugins : [
-    [
-      '@vuepress/pwa', {
-        serviceWorker : true,
-        updatePopup :
-            {updatePopup : {message : "new content", buttonText : "refresh"}}
-      }
-    ],
     [ '@vuepress/search', {searchMaxSuggestions : 10} ],
   ],
 }
