@@ -39,14 +39,14 @@ module.exports = {
         'airship',
         'liftoff',
       ],
-      '/guide/' : [
-        '',
-      ],
       '/guide/ecs_cluster/' : [
         {
           title : 'ECS Cluster',
-          collapasble : false,
-          children : [ '' ],
+          collapsable : false,
+          children : [
+            '',
+            '/guide/ecs_cluster/fargate_launchtype',
+          ],
         },
       ],
     },
