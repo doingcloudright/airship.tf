@@ -117,6 +117,10 @@ resource "aws_security_group" "ecs_instances_sg" {
 ```
 ### ECS Cluster Module
 
+The following code block creates an ECS Cluster with an Autoscaling Group (ASG) and its instances in the designated VPC and subnets. The instances will automatically be assigned with the given security groups ids. For security hardening purposes the EC2 metadata service can be blocked of by setting block_metadata_service to true.
+
+By default the module sets `user_data` for the launch configuration of the ASG to make sure the instances bootstrap in a certain way. Part of the userdata is the configuration of /etc/ecs/ecs.config which is the config file of the ECS Agent. By setting `ec2_custom_userdata` with bash formatted script you can extend the bootprocess, for example, adding users and their public keys.
+
 ```json
 module "ecs_web" {
   source  = "blinkist/airship-ecs-cluster/aws"
@@ -134,7 +138,7 @@ module "ecs_web" {
     # ec2_instance_type defines the instance type
     ec2_instance_type = "t2.small"
     # ec2_custom_userdata sets the launch configuration userdata for the EC2 instances
-    ec2_custom_userdata = "${data.template_file.extra_userdata.rendered}"
+    ec2_custom_userdata = ""
     # ec2_asg_min defines the minimum size of the autoscaling group
     ec2_asg_min = "2"
     # ec2_asg_max defines the maximum size of the autoscaling group
@@ -147,20 +151,47 @@ module "ecs_web" {
 
     # block_metadata_service blocks the aws metadata service from the ECS Tasks true / false, this is preferred security wise
     block_metadata_service = true
-
-    # efs_enabled sets if EFS should be mounted
-    efs_enabled = true
-    # the id of the EFS volume to mount
-    efs_id = "${module.efs.aws_efs_file_system_sharedfs_id}"
-    # efs_mount_folder defines the folder to which the EFS volume will be mounted
-    # efs_mount_folder = "/mnt/efs"
   }
 
   # vpc_security_group_ids defines the security groups for the ec2 instances.
   vpc_security_group_ids = ["${module.ecs_instances_sg.this_security_group_id}"]
 
-  # ecs_instance_scaling_create defines if we set autscaling for the autoscaling group
-  # NB! NB! A draining lambda ARN needs to be defined !!
+
+  tags = {
+	Environment = "Development"
+  }
+}
+```
+
+
+
+### ECS Cluster Scaling
+
+To configure the autoscaling group to scale up and down a few measures need to be taken. ECS Services which run inside the ECS Cluster need to be stopped and moved to other EC2 Nodes the moment the ECS Cluster is scaling down. A lambda function discussed in [This AWS Blog Article](https://aws.amazon.com/blogs/compute/how-to-automate-container-instance-draining-in-amazon-ecs/) describes how that works. That Lambda has been made into a Terraform Module and can be used by different ECS Clusters in the same account.
+
+
+```json
+module "ecs_draining {
+  source  = "blinkist/airship-ecs-instance-draining/aws"
+  version = "0.1.0"
+  name    = "drain"
+}
+```
+
+::: warning
+It's important to create apply this module before refering to it in the ecs cluster module.
+:::
+
+After creating the lambda, ecs_instance_scaling_create can be set to true and the module can refer to the ecs_instance_draining_lambda_arn. The parameter: ecs_instance_scaling_properties configures a list with maps with the scaling movements.
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html
+
+```json
+module "ecs_web" {
+  ..
+  ..
+  ..
+  # ecs_instance_scaling_create needs to be true
   ecs_instance_scaling_create = true
 
   # The lambda function which takes care of draining the ecs instance
@@ -191,18 +222,9 @@ module "ecs_web" {
      scaling_adjustment = "-1"
    },
   ]
-
-  tags = {
-	Environment = "${terraform.workspace}"
-  }
+  ..
+  ..
+  ..
 }
 ```
 
-
-
-TODO
-
-The following code block creates an ECS cluster named NAME.
-* Configures a newly created Autoscaling Group to run inside given VPC
-* Configures a newly created Autoscaling Group to run to run inside given Subnet IDs
-* Configures a newly created Autoscaling Group to run have custome ec2_custom_userdata
