@@ -182,7 +182,7 @@ module "ecs_draining {
 It's important to create apply this module before refering to it in the ecs cluster module.
 :::
 
-After creating the lambda, ecs_instance_scaling_create can be set to true and the module can refer to the ecs_instance_draining_lambda_arn. The parameter: ecs_instance_scaling_properties configures a list with maps with the scaling movements.
+After applying the instance draining module, `ecs_instance_scaling_create` can be set to true and the module can refer to the `ecs_instance_draining_lambda_arn`. The parameter: `ecs_instance_scaling_properties` configures a list with maps with the scaling movements.
 
 https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html
 
