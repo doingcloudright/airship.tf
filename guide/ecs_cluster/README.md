@@ -228,3 +228,13 @@ module "ecs_web" {
 }
 ```
 
+::: tip
+ This
+
+ IS
+
+ A
+
+ multi-line test
+ for Erik
+:::
