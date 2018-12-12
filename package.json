@@ -17,6 +17,8 @@
         "vuepress": "^1.0.0-alpha.25"
     },
     "dependencies": {
-        "markdown-it-task-lists": "^2.1.1"
+        "markdown-it-mermaid": "^0.2.5",
+        "markdown-it-task-lists": "^2.1.1",
+        "mermaid": "^8.0.0-rc.8"
     }
 }
