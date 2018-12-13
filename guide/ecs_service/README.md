@@ -9,8 +9,30 @@ sidebarDepth: 2
 The ECS Service module defines all resources needed for a running a Docker container inside ECS. The parameters of the module decide whether the module is connected to a load balancer or not, whether it uses a service registry, or if it needs scheduled tasks or if it has extra scaling needs. The goal of this module is to create a simple interface for the many possibilities AWS has to offer with ECS.
 
 ## Architecture
-Setup :
-[ Picture here ]
+
+<div class="mermaid">
+graph LR
+    0[fa:fa-ban DNS Domain ecs_name.zone.tld]-->B[fa:fa-ban ALB]
+    B-->C[fa:fa-ban ALB HTTP Listener]
+    B-->D[fa:fa-ban ALB HTTPS Listener]
+    C-->E[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+    D-->F[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+    C-->L[fa:fa-ban LB Listener Rule for custom_domains optional]
+    D-->M[fa:fa-ban LB Listener Rule for custom_domains optional]
+    E-->G[fa:fa-ban Target Group]
+    F-->G[fa:fa-ban Target Group]
+    L-->G[fa:fa-ban Target Group]
+    M-->G[fa:fa-ban Target Group]
+    G-->H[fa:fa-ban ECS Service]
+    G-->I[fa:fa-ban ECS Service]
+    subgraph ECS Service
+    H[fa:fa-ban ECS Task N]
+    I[fa:fa-ban ECS Task N+1]
+    end
+    H-.->J[fa:fa-ban Task Definition:version]
+    I-.->J[fa:fa-ban Task Definition:version]
+</div>
+
 
 ## ECS Service networking
 
@@ -21,7 +43,7 @@ A differentation needs to be made between two different types of ECS Services an
     inherit the Networking of their Docker Host. As different different tasks cannot allocate the same port on the docker host, ECS uses [Dynamic Port Mapping](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html), which allocated ports in the ephemeral port range from 49153 through 65535. The Security Group of the EC2 Instance needs to allow traffic from the Load Balancer to these ports.
 
 * awsvpc
-    - awsvpc network-mode is mandatory on Fargate and optional on EC2. The ECS Task will have its own ENI and will also have its own Security Group. The `container_port` parameter will also be used to expose the port on its network interface. A security group rule would need to allow traffic to this port. Using awsvpc with EC2 ECS is limited as the amount of available network interfaces per EC2 instance is extremely limited. [This](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) table shows the amount of ENI's available per instance type.
+    - awsvpc network-mode is mandatory on Fargate and optional on EC2. The ECS Task will have its own ENI and will also have its own Security Group. The `container_port` parameter will also be used to expose the port on its network interface. A security group rule would need to allow traffic to this port. Using awsvpc with EC2 ECS is limited as the amount of available network interfaces per EC2 instance is extremely limited. [This](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) table shows the amount of ENI's available per instance type. Check out the [AWS Container Roadmap](https://github.com/aws/containers-roadmap/issues/7)!
 
 ::: tip
 For both network modes the security groups need to allow outgoing traffic to communicate with AWS, for example to pull ECR Docker images.
@@ -46,7 +68,7 @@ When set to `none` the ECS Service is not connected to a load balancer and will 
 
 The ALB can forward traffic of multiple domain names to different ECS Services by creating so called [lb_listener_rules](https://www.terraform.io/docs/providers/aws/r/lb_listener_rule.html). This module can create listener rules on both the HTTP as the HTTPS listener. Based on the `host-header` ALB traffic will be forwarded to the right ECS Service. The Application Load Balancer is not transparent and traffic needs to be allowed. See [ECS Service networking](/guide/ecs_service/#ecs-service-networking) for more information.
 
-By default the Module will create a record in the given `route53_zone_id` with the value of the name of the service, e.g. &lt;ecs_name&gt;.zone.tld. By default the type of record is create
+By default the Module will create a record in the given `route53_zone_id` with the value of the name of the service, e.g. &lt;ecs_name&gt;.zone.tld. The parameter `route53_record_type` can be set to either `NONE`, `ALIAS` or `CNAME`. In case `NONE` is given, no record will be made inside the Route53 Zone. `ALIAS` has as advantage that multiple records with the same name can be made, this can help a migration to a different service at a later stage.
 
 <div class="mermaid">
 graph LR
@@ -128,6 +150,21 @@ These deployment tools create a new Task Definition, by copying the current Task
 As updates happen outside of the Terraform State a so called drift takes place. The ECS Service in Terraform is still pointing to an older version of the Task definition. The ECS Module takes care of that by looking up the current active ECS Task definition. It grabs the running image from the live container definition and it creates a new Task Definition with the updated image. If there are no changes between the live task definition and the newly created one. The ECS Service will keep pointing to the live definition and no actual update takes place.
 
 FLOW IMAGE HERE
+
+<div class="mermaid">
+graph LR
+    0[fa:fa-ban DNS Domain ecs_name.zone.tld]-->B[fa:fa-ban ALB]
+    B-->C[fa:fa-ban ALB HTTP Listener]
+    B-->D[fa:fa-ban ALB HTTPS Listener]
+    C-->E[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+    D-->F[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+    C-->L[fa:fa-ban LB Listener Rule for custom_domains optional]
+    D-->M[fa:fa-ban LB Listener Rule for custom_domains optional]
+    E-->G[fa:fa-ban ECS Service]
+    F-->G[fa:fa-ban ECS Service]
+    L-->G[fa:fa-ban ECS Service]
+    M-->G[fa:fa-ban ECS Service]
+</div>
 
 <center>§§</center>
 
