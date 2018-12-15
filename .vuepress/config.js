@@ -58,6 +58,14 @@ module.exports = {
                 'airship',
                 'liftoff',
             ],
+            '/guide/ecs_service/': [
+                '',
+                'deployment',
+                'networking',
+                'load_balancing',
+                'scaling_capacity',
+                'ecs_cron_tasks',
+            ],
             '/guide/ecs_cluster/': [{
                 title: 'ECS Cluster',
                 collapsable: false,
