@@ -55,7 +55,7 @@ As updates happen outside of the Terraform State a so called drift takes place. 
 ## Policy for deployment
 
 The IAM User or IAM Role which updates the ECS Service with new Task Definitions need the following IAM Policy.
-```
+```json
 data "aws_iam_policy_document" "ecs_deploy_permissions" {
   statement {
     effect = "Allow"

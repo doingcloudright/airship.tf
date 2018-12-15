@@ -62,6 +62,7 @@ module.exports = {
                 '',
                 'deployment',
                 'iam',
+                'secrets_management',
                 'networking',
                 'load_balancing',
                 'scaling_capacity',
