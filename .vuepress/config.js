@@ -61,6 +61,7 @@ module.exports = {
             '/guide/ecs_service/': [
                 '',
                 'deployment',
+                'iam',
                 'networking',
                 'load_balancing',
                 'scaling_capacity',

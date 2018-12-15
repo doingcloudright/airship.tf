@@ -8,6 +8,10 @@ sidebarDepth: 2
 
 ## Introduction
 
+::: warning
+The name you choose for the ECS Cluster will be interpolated into different resources, for example the Application Load Balancer target groups. Certain AWS resources have a name limitation of 32 characters hence it's important to be economical with the amount of chars you allocate to the cluster name. Once a cluster has been created it's not possible to rename it, plan wisely.
+:::
+
 ... Intro
 
 ## Architecture
@@ -41,5 +45,4 @@ graph TB
     container_envvars  {
          SSM_ENABLED = "true"
     }
-
 ```
