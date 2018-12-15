@@ -15,14 +15,12 @@ Popular tools for deploying Docker images are:
 * [Deploy fish](https://github.com/caltechads/deployfish)
 
 The parameter `bootstrap_container_image` defines the container image for the container definition for the first time. After the service has been deployed it will not be used anymore unless `force_bootstrap_container_image` is set to true.
-```
+```json
   # force_bootstrap_container_image to true will force the deployment to use var.bootstrap_container_image as container_image
   # if container_image is already deployed, no actual service update will happen
   # force_bootstrap_container_image = false
   bootstrap_container_image = "nginx:stable"
 ```
-
-
 
 <mermaid/>
 

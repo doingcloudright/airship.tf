@@ -14,6 +14,8 @@ This ECS Module takes care of creating an IAM role for the task and will also at
 
 ```json
     kms_keys  = ["${module.global-kms.aws_kms_key_arn}", "${module.demo-kms.aws_kms_key_arn}"]
+    # We can disable the policy creation by setting kms_enabled to true
+    # kms_enabled = false
 ```
 
 ### SSM
@@ -23,6 +25,8 @@ The module has a list `ssm_paths` as input which the policy will interpolate as 
     # The SSM paths for which the service will be allowed to ssm:GetParameter and ssm:GetParametersByPath on
     # ssm_paths = ["shared_domain","application_specific_name"]
     ssm_paths = ["${module.global_kms.name}", "${module.demo_kms.name}"]
+    # We can disable the policy creation by setting ssm_enabled to true
+    # ssm_enabled = false
   }
 ```
 
