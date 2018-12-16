@@ -69,6 +69,7 @@ module.exports = {
                 'ecs_cron_tasks',
                 'ec2_specific',
                 'logging',
+                'healthcheck',
             ],
             '/guide/ecs_cluster/': [{
                 title: 'ECS Cluster',
