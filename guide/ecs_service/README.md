@@ -8,18 +8,19 @@ sidebarDepth: 2
 
 ## Introduction
 
-This module will create an ECS Service within an existing ECS Cluster and takes care of connecting it to a Load Balancer if needed. It's highly configurable as there are many ways to operate an ECS Service. This Guide will go through most if not all of the configuration options the module supports. If you have questions, please join the #Airship channel on [Sweetops Slack](http://sweetops.slack.com) or create an issue [here](https://github.com/blinkist/terraform-aws-airship-ecs-service/issues)!
+This module will create an ECS Service within an existing ECS Cluster and takes care of connecting it to a Load Balancer if configured to. It's highly configurable as there are many ways to operate an ECS Service. This Guide will go through most if not all of the configuration options the module supports. If you have questions, please join the #Airship channel on [Sweetops Slack](http://sweetops.slack.com) or create an issue [here](https://github.com/blinkist/terraform-aws-airship-ecs-service/issues)!
 
 ## Contributing
 
-Contributors are much welcomed! If you see a bug or a lacking feature, feel free to submit a PR. Discussing your ideas first will of course help getting your PR through quicker! Please understand that the module should have as little breaking changes possible within this major release. With HCL2 ( Terraform 0.12 ) breaking changes seem to be inevitable and for this major release, refactoring with new ideas is of course much needed.
+We are happy with contributions! If you see a bug or a lacking feature, feel free to submit a PR. Discussing your ideas first will of course help getting your PR through quicker! Please understand that the module should have as little breaking changes possible within this major release. With HCL2 ( Terraform 0.12 ) breaking changes seem to be inevitable and for this major release, refactoring with new ideas is of course much welcomed.
 
 ## Naming Matters
 
-The name you choose for the ECS Service will be interpolated into different resources, for example the Application Load Balancer target groups. Certain AWS resources have a name limitation of 32 characters hence it's important to be economical with the amount of chars you allocate to the cluster name. Once a cluster has been created it's not possible to rename it, plan wisely.
+The name you choose for the ECS Service will be interpolated into different resources, for example the Application Load Balancer target groups. Certain AWS resources have a name limitation of 32 characters hence it's important to be economical with the amount of chars you allocate to the cluster name. Once a service has been created it's not possible to rename it, plan wisely.
 
 ## Architecture
 
+ALB Connected ECS Service
 <div class="mermaid">
 graph LR
     subgraph Module Scope
@@ -206,5 +207,4 @@ module "demo_web" {
   # s3_ro_paths define which paths on S3 can be accessed from the ecs service in read-write fashion.
   s3_rw_paths = []
 }
-
 ```

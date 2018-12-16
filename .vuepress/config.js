@@ -67,6 +67,8 @@ module.exports = {
                 'load_balancing',
                 'scaling_capacity',
                 'ecs_cron_tasks',
+                'ec2_specific',
+                'logging',
             ],
             '/guide/ecs_cluster/': [{
                 title: 'ECS Cluster',
@@ -78,6 +80,6 @@ module.exports = {
             }, ],
         },
         repo: 'blinkist/terraform-aws-airship-ecs-service',
-        editLinks: true,
+        editLinks: false,
     },
 }

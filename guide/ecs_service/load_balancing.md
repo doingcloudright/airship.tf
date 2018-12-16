@@ -60,6 +60,15 @@ module "demo_web" {
   
     # The route53 zone for which we create a subdomain
     route53_zone_id       = "${aws_route53_zone.shared_ext_services_domain.zone_id}"
+
+    # After which threshold in health check is the task marked as unhealthy, defaults to 3
+    # unhealthy_threshold   = "3"
+
+    # health_uri defines which health-check uri the target group needs to check on for health_check, defaults to /ping
+    # health_uri = "/ping"
+
+    # The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds.
+    deregistration_delay = "10"
   }
 
   custom_listen_hosts    = ["www.example.com"]
@@ -99,7 +108,7 @@ graph LR
     end
 </div>
 
-### Application LB HTTP->HTTP Redirect
+### Application LB HTTPS Redirect
 
 The ECS Module can also redirect HTTP traffic to HTTPS using [ALB Listener Rule - Redirect actions](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions). Setting load_balancing_properties `redirect_http_to_https` to true will create LB Listener rules for the HTTP listener which won't forward traffic to the ECS Service but redirect the HTTP client to HTTPS.
 
@@ -224,4 +233,3 @@ module "demo_web" {
     ..
     ..
 ```
-

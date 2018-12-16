@@ -11,7 +11,7 @@ In many environments it's common to have cronjob like tasks. This module provide
 <div class="mermaid">
 sequenceDiagram
     Cloudwatch Event->>Lambda: Triggers Lambda at given rate
-    Lambda->>AWS API ECS: Asks for task definition of currently running service
+    Lambda->>AWS API ECS: Asks for task definition of current running service
     AWS API ECS-->>Lambda: task definition
     Lambda->>AWS API ECS: Start Task Definition with given command
 </div>
