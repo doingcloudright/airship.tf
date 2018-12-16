@@ -6,44 +6,32 @@ actionLink: /getting_started/
 
 <div class="features">
   <div class="feature">
+    <h2>Production Quality</h2>
+    <p>These modules are already used in production</p>
+  </div>
+  <div class="feature">
     <h2>20 minutes</h2>
     <p>Is all you need to have an ECS Service / Cluster running inside your existing Terraform setup.</p>
   </div>
   <div class="feature">
-    <h2>Fargate</h2>
-    <p>Airship modules support both Fargate AND EC2 as ECS Cluster</p>
+    <h2>#DevopsLess</h2>
+    <p>Airship is perfect for small teams who cannot grasp all available complex Container Orchestration platforms out there.</p>
   </div>
   <div class="feature">
-    <h2>Fully-integrated into AWS</h2>
-    <p>ECS Services can be tailored to have minimal rights to other AWS components.</p>
+    <h2>AWS Components</h2>
+    <p>All running resources are part of the AWS ecosystem, 100% Supported</p>
   </div>
   <div class="feature">
-    <h2>ALB &amp; NLB Support </h2>
-    <p>Hook your services directly on a Network or Application Load Balancer</p>
+    <h2>Easy to plug into existing deployment pipeline</h2>
+    <p>There are many tools available which push your Docker to ECS</p>
   </div>
   <div class="feature">
-    <h2>Auto-scaling</h2>
-    <p>Scale your cluster or services with a simple codeblock</p>
+    <h2>Terraform Everything</h2>
+    <p>With Airship your team can define everything needed in one place.</p>
   </div>
   <div class="feature">
-    <h2>Drift support</h2>
-    <p>Deploy your ECS Services with CI/CD and still make changes to your ECS Task Definition </p>
-  </div>
-  <div class="feature">
-    <h2>Authentication</h2>
-    <p>Built-In Cognito support makes it possible to add authentication to your services</p>
-  </div>
-  <div class="feature">
-    <h2>S3 Access</h2>
-    <p>If your services needs access to S3, a simple directive makes it happen</p>
-  </div>
-  <div class="feature">
-    <h2>CronJobs</h2>
-    <p>There is a Simple directive to have tasks periodically</p>
-  </div>
-  <div class="feature">
-    <h2>SSM / KMS</h2>
-    <p>Give your ECS Service access to secured parameters with two lines of code</p>
+    <h2>Smart Modules</h2>
+    <p>Docker Cronjobs ✓ Authentication ✓, most issues are taken care off.</p>
   </div>
 </div>
 
