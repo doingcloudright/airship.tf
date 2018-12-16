@@ -82,4 +82,5 @@ module.exports = {
         repo: 'blinkist/terraform-aws-airship-ecs-service',
         editLinks: false,
     },
+    plugins: ['@vuepress/google-analytics']
 }

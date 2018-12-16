@@ -10,10 +10,11 @@
     "author": "Maarten van der Hoef",
     "license": "Mozilla Public License Version 2.0",
     "devDependencies": {
+        "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
         "@vuepress/plugin-pwa": "^1.0.0-alpha.25",
         "@vuepress/plugin-search": "^1.0.0-alpha.25",
-        "push-dir": "^0.4.1",
         "gh-pages": "^2.0.1",
+        "push-dir": "^0.4.1",
         "vuepress": "^1.0.0-alpha.25"
     },
     "dependencies": {
