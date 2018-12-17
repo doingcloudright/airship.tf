@@ -1,21 +1,24 @@
 # Introduction
 
+Airship Modules concentrate many years of AWS experience in to simple-to-use-building-blocks for Docker orchestration. Its initial goal was to have simple to use modules for every backend developer at Blinkist, the project never stopped and grew to be the modules for running an managed AWS *Docker Orchestration platform* configured by Terraform. It's simplicity has been proven to be great for Startups and for smaller independent development teams who are using Terraform already to define all parts of infrastructure.
 
-::: warning
-Test Content
-:::
+All resources created with the Airship modules are directly supported by AWS support. By keeping ECS simple and less feature rich AWS saves on complexity compared to Kubernetes. The Control Pane is free to use, ECS Services can utilize Fargate Mode, running serverless, and it integrates directly into all existing AWS components like:
 
-Two years ago ..
+* The Docker Image Registry
+* Load Balancers
+* SQS
+* RDS
+* Cloudfront
+* DynamoDB
+* .. everything 
 
-## Terraform
+ECS matches with the ideology to use Docker Orchestration for stateless applications and to use other AWS offerings like RDS to have the least possible statefull applications running. Expenses and HR are saved by needing less in-house expertise. With a bit of help at launch, backend developers without a lot of Ops-experience can easily adept into using ECS.
+## Team
 
-Hashicorp Terraform has established itself as the cross-cloud Infrastructure Definition language. With its support for multiple providers and cloud-related parties it allows teams to completely define their stack with Terraform. Terraform Modules act as templates for building blocks of infrastructure and can be shared through the open source market place [Terraform Module Registry](http://registry.terraform.io).
+The happy contributors of this project are ...
 
-
-## ECS
-
-[ECS](https://aws.amazon.com/blogs/aws/cloud-container-management/) is AWS's original offering for Docker Orchestration. Although less feature rich than Kubernetes (EKS), it has proved to be an extremely stable platform for hosting stateless Docker services. Unlike EKS, Terraform can completely manage the service, and its interaction and access to other AWS components like Load Balancers, fine grained security access to RDS, and other components which are dependent of IAM Policies.
-
-## Airship
-
-The Airship project started to be able to allow non-devops-developers at [Blinkist](http://www.blinkist.com/), to simply roll out their own services using Terraform. The module would automatically made the service available to other services and the public by connecting the service to an Application Load balancer and to create the Route53 record with it. As ECS grew the module grew with it and added functionality many regular Docker services would have. j
+| | | |
+|--  | ------------- |:-------------:|
+|Maarten van der Hoef | <img src="https://github.com/maartenvanderhoef.png?size=120"> | 90% Airship, 10% Berliner |
+|Jonathan Boulle| <img src="https://github.com/jonboulle.png?size=120"> | Misses nothing |
+|Jamie Nelson| <img src="https://github.com/Jamie-BitFlight.png?size=120"> | ECS Shaman |
