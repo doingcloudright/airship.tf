@@ -142,9 +142,75 @@ module "demo_web" {
 
 ### Application LB Cognito Authentication
 
-Cognito provides an easy way to add authentication to any of your HTTP endpoints. A simple user pool can be created in Cognito which can be used to authenticate your users against.
+Cognito provides an easy way to add authentication to any of your HTTP endpoints. A simple user pool can be created in Cognito which can be used to authenticate your users with. The following codeblock is a sample on how to create a cognito user pool.
 
-[SAMPLE NEEED]
+```json
+resource "aws_cognito_user_pool" "main" {
+  name = "testpool"
+
+  auto_verified_attributes = ["email"]
+
+  password_policy {
+    minimum_length    = 6
+    require_lowercase = false
+    require_uppercase = false
+    require_numbers   = false
+    require_symbols   = false
+  }
+
+  admin_create_user_config {
+    allow_admin_create_user_only = true
+    unused_account_validity_days = 7
+
+    invite_message_template {
+      email_message = "Your username is {username} and temporary password is {####}. "
+      email_subject = "Your temporary password"
+      sms_message   = "Your username is {username} and temporary password is {####}. "
+    }
+  }
+
+  verification_message_template {
+    default_email_option = "CONFIRM_WITH_LINK"
+  }
+}
+
+resource "aws_cognito_user_pool_domain" "pool" {
+  domain       = "testdomain"
+  user_pool_id = "${aws_cognito_user_pool.main.id}"
+}
+
+resource "aws_cognito_user_pool_client" "client" {
+  name                                 = "tfAWS"
+  generate_secret                      = "true"
+  supported_identity_providers         = ["COGNITO"]
+  allowed_oauth_flows_user_pool_client = true
+  allowed_oauth_flows                  = ["code"]
+  callback_urls                        = ["https://domain_of_your_http_endpoint/oauth2/idpresponse"]
+
+  allowed_oauth_scopes = [
+    "email",
+    "openid",
+    "profile",
+    "aws.cognito.signin.user.admin",
+  ]
+
+  user_pool_id = "${aws_cognito_user_pool.main.id}"
+}
+
+```
+
+After you have created the userpool, you can add a user like this. In this example, only Administrators can create new users.
+
+<img :src="$withBase('/cognito_create_user.png')" alt="create cognito user">
+
+
+
+::: warning
+Before the ECS Module can user the cognito user pool it needs to be applied with Terraform first.
+:::
+
+
+The `cognito_*` params take care of changing the ALB Listener to make sure the only authenticated users can visit the content. As cognito can only be applied to the https listener it's important to enable `redirect_http_to_https`.
 
 ```json
 module "demo_web" {
@@ -173,14 +239,14 @@ module "demo_web" {
 
     cognito_auth_enabled = true
 
-    # cognito_user_pool_arn defines the cognito user pool arn for the added cognito authentication
-    cognito_user_pool_arn = ""
+    ## cognito_user_pool_arn defines the cognito user pool arn for the added cognito authentication
+    cognito_user_pool_arn = "${aws_cognito_user_pool.main.arn}"
 
     # cognito_user_pool_client_id defines the cognito_user_pool_client_id
-    cognito_user_pool_client_id = ""
+    cognito_user_pool_client_id = "${aws_cognito_user_pool_client.client.id}"
 
     # cognito_user_pool_domain sets the domain of the cognito_user_pool
-    cognito_user_pool_domain = ""
+    cognito_user_pool_domain = "${aws_cognito_user_pool_domain.pool.id}"
   }
   ..
   ..
