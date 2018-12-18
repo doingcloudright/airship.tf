@@ -1,6 +1,6 @@
 module.exports = {
-    title: '.. ECS made easy',
-    description: 'Home of Terraform Airship',
+    title: 'Airship Modules',
+    description: 'Flexible Terraform templates help setting up your Docker Orchestration platform, 100% supported by Amazon',
     ga: 'UA-129919577-1',
     markdown: {
         extendMarkdown: md => {
@@ -33,25 +33,21 @@ module.exports = {
             }, {
                 text: 'Guide',
                 items: [{
-                        text: 'Examples',
-                        link: '/'
-                    },
-                    {
-                        text: 'Start',
-                        items: [{
-                                text: 'ECS Cluster',
-                                link: '/guide/ecs_cluster/'
-                            },
-                            {
-                                text: 'ECS Service',
-                                link: '/guide/ecs_service/'
-                            }
-                        ]
-                    },
-                ]
+                    text: 'Start',
+                    items: [{
+                            text: 'ECS Cluster',
+                            link: '/guide/ecs_cluster/'
+                        },
+                        {
+                            text: 'ECS Service',
+                            link: '/guide/ecs_service/'
+                        }
+                    ]
+                }, ]
             }
         ],
         sidebar: {
+            '/introduction/': [''],
             '/getting_started/': [
                 '',
                 'preparation',
