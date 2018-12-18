@@ -56,7 +56,7 @@ graph LR
 ```json
 module "demo_web" {
   source  = "blinkist/airship-ecs-service/aws"
-  version = "0.8.3"
+  version = "0.8.4"
 
   name   = "demo-web"
 

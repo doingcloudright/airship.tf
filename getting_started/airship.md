@@ -50,7 +50,7 @@ Now that we have an ECS Cluster, we need to add an actual service. For this demo
 ```json
 module "fargate_service" {
   source  = "blinkist/airship-ecs-service/aws"
-  version = "0.8.3"
+  version = "0.8.4"
 
   name = "demo-web"
 
