@@ -223,9 +223,13 @@ module "demo_web" {
   load_balancing_properties {
     # The ARN of the ALB, when left-out the service, will not be attached to a load-balance
     lb_arn                = "${module.alb_shared_services_ext.load_balancer_id}"
+    
     # https listener ARN
     lb_listener_arn_https = "${element(module.alb_shared_services_ext.https_listener_arns,0)}"
   
+    # http listener ARN
+    lb_listener_arn       = "${element(module.alb_shared_services_ext.http_tcp_listener_arns,0)}"
+    
     # The VPC_ID the target_group is being created in
     lb_vpc_id             = "${module.vpc.vpc_id}"
   
