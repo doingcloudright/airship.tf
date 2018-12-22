@@ -35,6 +35,7 @@ actionLink: /getting_started/
   </div>
 </div>
 
-<div style="text-align: center">
-  <Bit/>
-</div>
+
+<hr/>
+
+*This website is created with [VuePress](http://vuepress.vuejs.org), source available [here](http://github.com/doingcloudright/airship.tf). Feel free to create an [issue](http://github.com/doingcloudright/airship.tf/issues) or issue a [PR](http://github.com/doingcloudright/airship.tf/pulls).

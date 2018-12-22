@@ -4,18 +4,16 @@ Airship Modules concentrate many years of AWS experience in to simple-to-use-bui
 
 All resources created with the Airship modules are directly supported by AWS support. By keeping ECS simple and less feature rich AWS saves on complexity compared to Kubernetes. The Control Pane is free to use, ECS Services can utilize Fargate Mode, running serverless, and it integrates directly into all existing AWS components like:
 
-* The Docker Image Registry
-* Load Balancers
-* SQS
-* RDS
-* Cloudfront
-* DynamoDB
-* .. everything 
+| | | ||
+| ------------- |:-------------|:--|:-- | 
+| ECR - Docker Image Registry | SQS | Elasticache | DynamoDB  |
+| Application / Network LB | RDS | Cloudfront | ElasticSearch  |
 
 ECS matches with the ideology to use Docker Orchestration for stateless applications and to use other AWS offerings like RDS to have the least possible statefull applications running. Expenses and HR are saved by needing less in-house expertise. With a bit of help at launch, backend developers without a lot of Ops-experience can easily adept into using ECS.
+
 ## Team
 
-The happy contributors of this project are ...
+The contributors of this project are ...
 
 | | | |
 |--  | ------------- |:-------------:|

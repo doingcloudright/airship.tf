@@ -39,7 +39,7 @@ Apply your added terraform code, in the EC2 Panel on the AWS Console you will se
 It's important to have applied terraform, before continuing with this step.
 :::
 
-Now that we have an ECS Cluster, we need to add an actual service. For this demonstration, we will use a very standard `nginx:stable` docker image. A summary of the specifics of the service.
+Now that we have an ECS Cluster, we need to add an actual service. For this demonstration, we will use a very standard `nginx:stable` docker image. A summary of the specifics of the service. Replace `<YOUR REGION>` with the active AWS region.
 
 - [x] This ECS Service uses Fargate
 - [x] The service is place inside a private subnet
@@ -56,7 +56,8 @@ module "fargate_service" {
 
   ecs_cluster_id = "${module.ecs.cluster_id}"
 
-  region = "eu-central-1"
+  region = "<YOUR REGION>"
+
 
   fargate_enabled = true
 

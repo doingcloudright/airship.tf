@@ -47,12 +47,12 @@ module.exports = {
             }
         ],
         sidebar: {
-            '/introduction/': [''],
             '/getting_started/': [
                 '',
                 'preparation',
                 'airship',
                 'liftoff',
+                'troubleshooting',
             ],
             '/guide/ecs_service/': [
                 '',
