@@ -35,7 +35,7 @@ Apply your added terraform code, in the EC2 Panel on the AWS Console you will se
 
 ## Airship ECS Service
 
-::: tip
+::: warning
 It's important to have applied terraform, before continuing with this step.
 :::
 

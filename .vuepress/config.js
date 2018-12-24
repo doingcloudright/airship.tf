@@ -66,6 +66,7 @@ module.exports = {
                 'ec2_specific',
                 'logging',
                 'healthcheck',
+                'service_discovery',
             ],
             '/guide/ecs_cluster/': [{
                 title: 'ECS Cluster',
