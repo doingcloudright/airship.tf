@@ -61,12 +61,12 @@ module.exports = {
                 'secrets_management',
                 'networking',
                 'load_balancing',
+                'service_discovery',
                 'scaling_capacity',
                 'ecs_cron_tasks',
                 'ec2_specific',
                 'logging',
                 'healthcheck',
-                'service_discovery',
             ],
             '/guide/ecs_cluster/': [{
                 title: 'ECS Cluster',
