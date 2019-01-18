@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Airship Modules',
-    description: 'Flexible Terraform templates help setting up your Docker Orchestration platform, 100% supported by Amazon',
+    description: 'Flexible Terraform templates help setting up your Docker Orchestration platform, resources 100% supported by Amazon',
     ga: 'UA-129919577-1',
     markdown: {
         extendMarkdown: md => {
@@ -80,5 +80,8 @@ module.exports = {
         repo: 'blinkist/terraform-aws-airship-ecs-service',
         editLinks: false,
     },
-    plugins: ['@vuepress/google-analytics']
+    plugins: [
+        '@vuepress/google-analytics',
+        'vuepress-plugin-example-preview'
+    ]
 }
