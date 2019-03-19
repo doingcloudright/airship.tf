@@ -18,7 +18,7 @@ The [ECS Cluster](https://github.com/blinkist/terraform-aws-airship-ecs-cluster)
 ```json
 module "ecs" {
   source  = "blinkist/airship-ecs-cluster/aws"
-  version = "0.5.0"
+  version = "0.5.1"
 
   name = "ecs-demo"
 

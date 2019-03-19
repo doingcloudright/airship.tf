@@ -124,7 +124,7 @@ By default the module sets `user_data` for the launch configuration of the ASG t
 ```json
 module "ecs_web" {
   source  = "blinkist/airship-ecs-cluster/aws"
-  version = "0.5.0"
+  version = "0.5.1"
 
   # name is re-used as a unique identifier for the creation of different resources
   name            = "NAME"
