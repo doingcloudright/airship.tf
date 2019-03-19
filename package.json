@@ -21,7 +21,6 @@
         "markdown-it-mermaid": "^0.2.5",
         "markdown-it-task-lists": "^2.1.1",
         "mermaid": "^8.0.0",
-        "vue-github-buttons": "file:../../../dev/vue-github-buttons",
-        "vuepress-plugin-example-preview": "file:../../../dev/vuepress-plugin-example-preview"
+        "vue-github-buttons": "^3.0.1"
     }
 }

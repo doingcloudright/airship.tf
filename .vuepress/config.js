@@ -81,7 +81,7 @@ module.exports = {
         editLinks: false,
     },
     plugins: [
+        require('vue-github-buttons/plugins/vuepress'),
         '@vuepress/google-analytics',
-        'vuepress-plugin-example-preview'
     ]
 }
