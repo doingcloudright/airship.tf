@@ -1,0 +1,3 @@
+[submodule "ecs_service_submodule"]
+	path = ecs_service_submodule
+	url = https://github.com/blinkist/terraform-aws-airship-ecs-service.git
