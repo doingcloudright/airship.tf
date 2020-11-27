@@ -15,7 +15,6 @@ install:
   - rm -rf node_modules
   - npm install
   - npm run build
-  - printf "airship.tf\n" > .vuepress/dist/CNAME
 
 script:
   - echo "Skipping tests"
