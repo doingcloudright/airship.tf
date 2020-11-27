@@ -2,6 +2,7 @@ module.exports = {
     title: 'Airship Modules',
     description: 'Flexible Terraform templates help setting up your Docker Orchestration platform, resources 100% supported by Amazon',
     ga: 'UA-129919577-1',
+    base: '/airship.tf/',
     markdown: {
         extendMarkdown: md => {
             md
