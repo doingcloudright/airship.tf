@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Load balancing | Airship Modules</title>
+    <meta name="description" content="Flexible Terraform templates help setting up your Docker Orchestration platform, resources 100% supported by Amazon">
+    
+    
+    <link rel="preload" href="/airship.tf/assets/css/0.styles.c084f234.css" as="style"><link rel="preload" href="/airship.tf/assets/js/app.4cee3cc5.js" as="script"><link rel="preload" href="/airship.tf/assets/js/20.c5c3716d.js" as="script"><link rel="preload" href="/airship.tf/assets/js/12.eb597dd5.js" as="script"><link rel="preload" href="/airship.tf/assets/js/23.67dd923d.js" as="script"><link rel="prefetch" href="/airship.tf/assets/js/1.965ea306.js"><link rel="prefetch" href="/airship.tf/assets/js/10.06dee672.js"><link rel="prefetch" href="/airship.tf/assets/js/11.28d6581f.js"><link rel="prefetch" href="/airship.tf/assets/js/13.d2c0c577.js"><link rel="prefetch" href="/airship.tf/assets/js/14.eec9b810.js"><link rel="prefetch" href="/airship.tf/assets/js/15.147d7810.js"><link rel="prefetch" href="/airship.tf/assets/js/16.18ebfa36.js"><link rel="prefetch" href="/airship.tf/assets/js/17.d163eb79.js"><link rel="prefetch" href="/airship.tf/assets/js/2.07fac88e.js"><link rel="prefetch" href="/airship.tf/assets/js/21.f34d5b4a.js"><link rel="prefetch" href="/airship.tf/assets/js/22.3c8f8f25.js"><link rel="prefetch" href="/airship.tf/assets/js/24.dd4a7491.js"><link rel="prefetch" href="/airship.tf/assets/js/25.7ec91b0b.js"><link rel="prefetch" href="/airship.tf/assets/js/26.d04e78c1.js"><link rel="prefetch" href="/airship.tf/assets/js/27.5afa5ae2.js"><link rel="prefetch" href="/airship.tf/assets/js/28.019b8d38.js"><link rel="prefetch" href="/airship.tf/assets/js/29.0ab72ade.js"><link rel="prefetch" href="/airship.tf/assets/js/3.45ad0597.js"><link rel="prefetch" href="/airship.tf/assets/js/30.3ab445cb.js"><link rel="prefetch" href="/airship.tf/assets/js/31.e2405844.js"><link rel="prefetch" href="/airship.tf/assets/js/32.a45f980f.js"><link rel="prefetch" href="/airship.tf/assets/js/33.532d1160.js"><link rel="prefetch" href="/airship.tf/assets/js/34.b30eeb32.js"><link rel="prefetch" href="/airship.tf/assets/js/35.9fa3ec65.js"><link rel="prefetch" href="/airship.tf/assets/js/36.b2b1fdd5.js"><link rel="prefetch" href="/airship.tf/assets/js/37.526a455a.js"><link rel="prefetch" href="/airship.tf/assets/js/38.7c311cbd.js"><link rel="prefetch" href="/airship.tf/assets/js/39.79e10685.js"><link rel="prefetch" href="/airship.tf/assets/js/4.47100ef6.js"><link rel="prefetch" href="/airship.tf/assets/js/40.81e3d38e.js"><link rel="prefetch" href="/airship.tf/assets/js/41.ada57e2d.js"><link rel="prefetch" href="/airship.tf/assets/js/42.b53f97fd.js"><link rel="prefetch" href="/airship.tf/assets/js/43.522e7415.js"><link rel="prefetch" href="/airship.tf/assets/js/44.faa0ea91.js"><link rel="prefetch" href="/airship.tf/assets/js/45.b12c9c87.js"><link rel="prefetch" href="/airship.tf/assets/js/5.5f33e6ff.js"><link rel="prefetch" href="/airship.tf/assets/js/6.b876cc7d.js"><link rel="prefetch" href="/airship.tf/assets/js/7.9de6e1cc.js"><link rel="prefetch" href="/airship.tf/assets/js/8.72121fe3.js"><link rel="prefetch" href="/airship.tf/assets/js/9.f18940a9.js"><link rel="prefetch" href="/airship.tf/assets/js/vendors~docsearch.259d7d1e.js">
+    <link rel="stylesheet" href="/airship.tf/assets/css/0.styles.c084f234.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/airship.tf/" class="home-link router-link-active"><img src="/airship.tf/airship.png" alt="Airship Modules" class="logo"> <span class="site-name can-hide">Airship Modules</span></a> <div class="links"><form id="search-form" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/airship.tf/" class="nav-link">Home</a></div><div class="nav-item"><a href="/airship.tf/introduction/" class="nav-link">Introduction</a></div><div class="nav-item"><a href="/airship.tf/getting_started/" class="nav-link">Getting Started</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Start</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_cluster/" class="nav-link">ECS Cluster</a></li><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_service/" class="nav-link router-link-active">ECS Service</a></li></ul></li></ul></div></div> <a href="https://github.com/blinkist/terraform-aws-airship-ecs-service" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/airship.tf/" class="nav-link">Home</a></div><div class="nav-item"><a href="/airship.tf/introduction/" class="nav-link">Introduction</a></div><div class="nav-item"><a href="/airship.tf/getting_started/" class="nav-link">Getting Started</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Start</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_cluster/" class="nav-link">ECS Cluster</a></li><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_service/" class="nav-link router-link-active">ECS Service</a></li></ul></li></ul></div></div> <a href="https://github.com/blinkist/terraform-aws-airship-ecs-service" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/airship.tf/guide/ecs_service/" class="sidebar-link">ECS Service</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/#contributing" class="sidebar-link">Contributing</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/#naming-matters" class="sidebar-link">Naming Matters</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/#architecture" class="sidebar-link">Architecture</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/#full-example" class="sidebar-link">Full Example</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/deployment.html" class="sidebar-link">Deployment &amp; drift detection</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/deployment.html#deployment" class="sidebar-link">Deployment</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/deployment.html#drift-detection" class="sidebar-link">Drift Detection</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/deployment.html#policy-for-deployment" class="sidebar-link">Policy for deployment</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/iam.html" class="sidebar-link">Task IAM Role</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/iam.html#built-in-policies" class="sidebar-link">Built-in policies</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/iam.html#kms" class="sidebar-link">KMS</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/iam.html#ssm" class="sidebar-link">SSM</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/iam.html#s3" class="sidebar-link">S3</a></li></ul></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/iam.html#add-policies" class="sidebar-link">Add policies</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/secrets_management.html" class="sidebar-link">Secrets Management</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/secrets_management.html#chamber" class="sidebar-link">Chamber</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/secrets_management.html#creating-secrets-for-chamber" class="sidebar-link">Creating secrets for chamber</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/networking.html" class="sidebar-link">Networking</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/networking.html#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/networking.html#network-mode-bridge" class="sidebar-link">Network-mode: bridge</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/networking.html#network-mode-awsvpc" class="sidebar-link">Network-mode: awsvpc</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/load_balancing.html" class="active sidebar-link">Load balancing</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/load_balancing.html#types" class="sidebar-link">types</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/load_balancing.html#none" class="sidebar-link">None</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/load_balancing.html#application-lb" class="sidebar-link">Application LB</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/load_balancing.html#application-lb-https-redirect" class="sidebar-link">Application LB HTTPS Redirect</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/load_balancing.html#application-lb-cognito-authentication" class="sidebar-link">Application LB Cognito Authentication</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/load_balancing.html#network-lb-nlb" class="sidebar-link">Network LB ( NLB )</a></li></ul></li></ul></li><li><a href="/airship.tf/guide/ecs_service/service_discovery.html" class="sidebar-link">Service Discovery</a></li><li><a href="/airship.tf/guide/ecs_service/scaling_capacity.html" class="sidebar-link">Scaling and Capacity</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/scaling_capacity.html#capacity" class="sidebar-link">Capacity</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/scaling_capacity.html#scaling" class="sidebar-link">Scaling</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/ecs_cron_tasks.html" class="sidebar-link">ECS Cron tasks</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/ecs_cron_tasks.html#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/ecs_cron_tasks.html#implementation" class="sidebar-link">Implementation</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/ec2_specific.html" class="sidebar-link">EC2 Specific</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/ec2_specific.html#placement-strategy" class="sidebar-link">Placement Strategy</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/ec2_specific.html#scheduling-strategy" class="sidebar-link">Scheduling Strategy</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/ec2_specific.html#volume-mounting" class="sidebar-link">Volume Mounting</a></li></ul></li><li><a href="/airship.tf/guide/ecs_service/logging.html" class="sidebar-link">Logging</a></li><li><a href="/airship.tf/guide/ecs_service/healthcheck.html" class="sidebar-link">Health Checks</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/healthcheck.html#process" class="sidebar-link">Process</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/healthcheck.html#load-balancer-checks" class="sidebar-link">Load Balancer Checks</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_service/healthcheck.html#docker-healthcheck" class="sidebar-link">Docker Healthcheck</a></li></ul></li></ul> </div> <div class="page"> <div class="content default"><h1 id="load-balancing"><a href="#load-balancing" aria-hidden="true" class="header-anchor">#</a> Load balancing</h1> <h2 id="types"><a href="#types" aria-hidden="true" class="header-anchor">#</a> types</h2> <p>Through the ECS Module the ECS Service can be connected to different types of Load Balancers or no load balancer at all.</p> <p>The parameter <code>load_balancing_type</code> can be set to three options:</p> <ul><li><code>application</code> - Application Load Balancer</li> <li><code>network</code> - Network Load Balancer</li> <li><code>none</code> - No load balancer</li></ul> <h3 id="none"><a href="#none" aria-hidden="true" class="header-anchor">#</a> None</h3> <p>When set to <code>none</code> the ECS Service is not connected to a load balancer and will most likely function as a type of worker. Without a load balancer checking health check URL's the process is only marked unhealthy the moment the process is killed or when the docker <code>HEALTHCHECK</code> is failing.</p> <div class="language-json extra-class"><pre class="language-json"><code>module <span class="token string">&quot;demo_web&quot;</span> <span class="token punctuation">{</span>
+  ..
+  load_balancing_type = <span class="token string">&quot;none&quot;</span>
+  ..
+<span class="token punctuation">}</span>
+</code></pre></div><div></div> <h3 id="application-lb"><a href="#application-lb" aria-hidden="true" class="header-anchor">#</a> Application LB</h3> <p>The Appication Load Balancer ( ALB ) can forward traffic of multiple domain names to different ECS Services by creating so called <a href="https://www.terraform.io/docs/providers/aws/r/lb_listener_rule.html" target="_blank" rel="noopener noreferrer">lb_listener_rules<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>. This module can create listener rules on both the HTTP as the HTTPS listener. Based on the <code>host-header</code> ALB traffic will be forwarded to the right ECS Service. The Application Load Balancer is not transparent and traffic needs to be allowed. See <a href="/airship.tf/guide/ecs_service/#ecs-service-networking">ECS Service networking</a> for more information.</p> <p>As many services can be connected to a single Applicaation Load Balancer, the load b</p> <p>By default the Module will create a record in the given <code>route53_zone_id</code> with the value of the name of the service, e.g. &lt;ecs_name&gt;.zone.tld. The parameter <code>route53_record_type</code> can be set to either <code>NONE</code>, <code>ALIAS</code> or <code>CNAME</code>. In case <code>NONE</code> is given, no record will be made inside the Route53 Zone. <code>ALIAS</code> has as advantage that multiple records with the same name can be made, this can help a migration to a different service at a later stage.</p> <p>For every host inside the module parameter <code>custom_listen_hosts</code> this module will create a listener rule pointing to your ECS Service. With the code snippet in mind of below, and if www.example.com is pointed to the ALB, traffic with www.example.com as host header will be be forwarded to the running ECS tasks of the service.</p> <div class="language-json extra-class"><pre class="language-json"><code>module <span class="token string">&quot;demo_web&quot;</span> <span class="token punctuation">{</span>
+  ..
+  ..
+  name = <span class="token string">&quot;airship-web&quot;</span>
+  ..
+  # load_balancing_enabled sets if a load balancer will be attached to the ecs service / target group
+  load_balancing_type = <span class="token string">&quot;application&quot;</span>
+  # The ARN of the ALB<span class="token punctuation">,</span> when left-out the service<span class="token punctuation">,</span> will not be attached to a load-balance
+  load_balancing_properties_lb_arn                = <span class="token string">&quot;${module.alb_shared_services_ext.load_balancer_id}&quot;</span>
+  # https listener ARN
+  load_balancing_properties_lb_listener_arn_https = <span class="token string">&quot;${element(module.alb_shared_services_ext.https_listener_arns,0)}&quot;</span>
+  # http listener ARN
+  load_balancing_properties_lb_listener_arn       = <span class="token string">&quot;${element(module.alb_shared_services_ext.http_tcp_listener_arns,0)}&quot;</span>
+  load_balancing_properties
+  # The VPC_ID the target_group is being created in
+  load_balancing_properties_lb_vpc_id             = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+  # The route53 zone for which we create a subdomain
+  load_balancing_properties_route53_zone_id       = <span class="token string">&quot;${aws_route53_zone.shared_ext_services_domain.zone_id}&quot;</span>
+
+  # After which threshold in health check is the task marked as unhealthy<span class="token punctuation">,</span> defaults to <span class="token number">3</span>
+  load_balancing_properties_unhealthy_threshold   = <span class="token string">&quot;3&quot;</span>
+
+  # load_balancing_properties_unhealthy_threshold_health_uri defines which health-check uri the target group needs to check on for health_check<span class="token punctuation">,</span> defaults to /ping
+  # load_balancing_properties_unhealthy_threshold_health_uri = <span class="token string">&quot;/ping&quot;</span>
+
+  # The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is <span class="token number">0</span>-<span class="token number">3600</span> seconds.
+  load_balancing_properties_deregistration_delay = <span class="token string">&quot;10&quot;</span>
+
+  custom_listen_hosts    = <span class="token punctuation">[</span><span class="token string">&quot;www.example.com&quot;</span><span class="token punctuation">]</span>
+
+</code></pre></div><p>This sample would create ...</p> <div class="mermaid">
+graph LR
+    subgraph Module Scope
+    0
+    end
+    0[fa:fa-ban DNS Domain ecs_name.zone.tld]--&gt;B[fa:fa-ban ALB]
+    B--&gt;C[fa:fa-ban ALB HTTP Listener]
+    B--&gt;D[fa:fa-ban ALB HTTPS Listener]
+    C--&gt;E[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+    D--&gt;F[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+    C--&gt;L[fa:fa-ban LB Listener Rule for custom_domains optional]
+    D--&gt;M[fa:fa-ban LB Listener Rule for custom_domains optional]
+    subgraph Module Scope
+    E--&gt;G[fa:fa-ban Target Group]
+    F--&gt;G[fa:fa-ban Target Group]
+    L--&gt;G[fa:fa-ban Target Group]
+    M--&gt;G[fa:fa-ban Target Group]
+    G--&gt;H[fa:fa-ban ECS Service]
+    G--&gt;I[fa:fa-ban ECS Service]
+    subgraph ECS Cluster
+    subgraph ECS Service
+    H[fa:fa-ban ECS Task N]
+    I[fa:fa-ban ECS Task N+1]
+    end
+    end
+    H-.-&gt;J[fa:fa-ban Task Definition:version]
+    I-.-&gt;J[fa:fa-ban Task Definition:version]
+    end
+</div> <h3 id="application-lb-https-redirect"><a href="#application-lb-https-redirect" aria-hidden="true" class="header-anchor">#</a> Application LB HTTPS Redirect</h3> <p>The ECS Module can also redirect HTTP traffic to HTTPS using <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#redirect-actions" target="_blank" rel="noopener noreferrer">ALB Listener Rule - Redirect actions<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>. Setting load_balancing_properties <code>redirect_http_to_https</code> to true will create LB Listener rules for the HTTP listener which won't forward traffic to the ECS Service but redirect the HTTP client to HTTPS.</p> <div class="language-json extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-json"><code>module <span class="token string">&quot;demo_web&quot;</span> <span class="token punctuation">{</span>
+  ..
+  ..
+  name = <span class="token string">&quot;airship-web&quot;</span>
+  ..
+  # load_balancing_enabled sets if a load balancer will be attached to the ecs service / target group
+  load_balancing_type = <span class="token string">&quot;application&quot;</span>
+  load_balancing_properties <span class="token punctuation">{</span>
+    # The ARN of the ALB<span class="token punctuation">,</span> when left-out the service<span class="token punctuation">,</span> will not be attached to a load-balance
+    load_balancing_properties_lb_arn                = <span class="token string">&quot;${module.alb_shared_services_ext.load_balancer_id}&quot;</span>
+    # https listener ARN
+    load_balancing_properties_lb_listener_arn_https = <span class="token string">&quot;${element(module.alb_shared_services_ext.https_listener_arns,0)}&quot;</span>
+  
+    # The VPC_ID the target_group is being created in
+    load_balancing_properties_lb_vpc_id             = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+  
+    # The route53 zone for which we create a subdomain
+    load_balancing_properties_route53_zone_id       = <span class="token string">&quot;${aws_route53_zone.shared_ext_services_domain.zone_id}&quot;</span>
+
+    load_balancing_properties_redirect_http_to_https = <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  ..
+  ..
+</code></pre></div><h3 id="application-lb-cognito-authentication"><a href="#application-lb-cognito-authentication" aria-hidden="true" class="header-anchor">#</a> Application LB Cognito Authentication</h3> <p>Cognito provides an easy way to add authentication to any of your HTTP endpoints. A simple user pool can be created in Cognito which can be used to authenticate your users with. The following codeblock is a sample on how to create a cognito user pool.</p> <div class="language-json extra-class"><pre class="language-json"><code>resource <span class="token string">&quot;aws_cognito_user_pool&quot;</span> <span class="token string">&quot;main&quot;</span> <span class="token punctuation">{</span>
+  name = <span class="token string">&quot;testpool&quot;</span>
+
+  auto_verified_attributes = <span class="token punctuation">[</span><span class="token string">&quot;email&quot;</span><span class="token punctuation">]</span>
+
+  password_policy <span class="token punctuation">{</span>
+    minimum_length    = <span class="token number">6</span>
+    require_lowercase = <span class="token boolean">false</span>
+    require_uppercase = <span class="token boolean">false</span>
+    require_numbers   = <span class="token boolean">false</span>
+    require_symbols   = <span class="token boolean">false</span>
+  <span class="token punctuation">}</span>
+
+  admin_create_user_config <span class="token punctuation">{</span>
+    allow_admin_create_user_only = <span class="token boolean">true</span>
+    unused_account_validity_days = <span class="token number">7</span>
+
+    invite_message_template <span class="token punctuation">{</span>
+      email_message = <span class="token string">&quot;Your username is {username} and temporary password is {####}. &quot;</span>
+      email_subject = <span class="token string">&quot;Your temporary password&quot;</span>
+      sms_message   = <span class="token string">&quot;Your username is {username} and temporary password is {####}. &quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  verification_message_template <span class="token punctuation">{</span>
+    default_email_option = <span class="token string">&quot;CONFIRM_WITH_LINK&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+resource <span class="token string">&quot;aws_cognito_user_pool_domain&quot;</span> <span class="token string">&quot;pool&quot;</span> <span class="token punctuation">{</span>
+  domain       = <span class="token string">&quot;testdomain&quot;</span>
+  user_pool_id = <span class="token string">&quot;${aws_cognito_user_pool.main.id}&quot;</span>
+<span class="token punctuation">}</span>
+
+resource <span class="token string">&quot;aws_cognito_user_pool_client&quot;</span> <span class="token string">&quot;client&quot;</span> <span class="token punctuation">{</span>
+  name                                 = <span class="token string">&quot;tfAWS&quot;</span>
+  generate_secret                      = <span class="token string">&quot;true&quot;</span>
+  supported_identity_providers         = <span class="token punctuation">[</span><span class="token string">&quot;COGNITO&quot;</span><span class="token punctuation">]</span>
+  allowed_oauth_flows_user_pool_client = <span class="token boolean">true</span>
+  allowed_oauth_flows                  = <span class="token punctuation">[</span><span class="token string">&quot;code&quot;</span><span class="token punctuation">]</span>
+  callback_urls                        = <span class="token punctuation">[</span><span class="token string">&quot;https://domain_of_your_http_endpoint/oauth2/idpresponse&quot;</span><span class="token punctuation">]</span>
+
+  allowed_oauth_scopes = <span class="token punctuation">[</span>
+    <span class="token string">&quot;email&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;openid&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;profile&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;aws.cognito.signin.user.admin&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+
+  user_pool_id = <span class="token string">&quot;${aws_cognito_user_pool.main.id}&quot;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>After you have created the userpool, you can add a user like this. In this example, only Administrators can create new users.</p> <img src="/airship.tf/cognito_create_user.png" alt="create cognito user"> <div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>Before the ECS Module can user the cognito user pool it needs to be applied with Terraform first.</p></div> <p>The <code>cognito_*</code> params take care of changing the ALB Listener to make sure the only authenticated users can visit the content. As cognito can only be applied to the https listener it's important to enable <code>redirect_http_to_https</code>.</p> <div class="language-json extra-class"><pre class="language-json"><code>module <span class="token string">&quot;demo_web&quot;</span> <span class="token punctuation">{</span>
+  ..
+  ..
+  name = <span class="token string">&quot;airship-web&quot;</span>
+  ..
+  # load_balancing_enabled sets if a load balancer will be attached to the ecs service / target group
+  load_balancing_type = <span class="token string">&quot;application&quot;</span>
+  # The ARN of the ALB<span class="token punctuation">,</span> when left-out the service<span class="token punctuation">,</span> will not be attached to a load-balance
+  load_balancing_properties_lb_arn                = <span class="token string">&quot;${module.alb_shared_services_ext.load_balancer_id}&quot;</span>
+  
+  # https listener ARN
+  load_balancing_properties_lb_listener_arn_https = <span class="token string">&quot;${element(module.alb_shared_services_ext.https_listener_arns,0)}&quot;</span>
+  
+  # http listener ARN
+  load_balancing_properties_lb_listener_arn       = <span class="token string">&quot;${element(module.alb_shared_services_ext.http_tcp_listener_arns,0)}&quot;</span>
+  
+  # The VPC_ID the target_group is being created in
+  load_balancing_properties_lb_vpc_id             = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+  
+  # The route53 zone for which we create a subdomain
+  load_balancing_properties_route53_zone_id       = <span class="token string">&quot;${aws_route53_zone.shared_ext_services_domain.zone_id}&quot;</span>
+
+  load_balancing_properties_redirect_http_to_https = <span class="token boolean">true</span>
+
+  # cognito_auth_enabled is set when cognito authentication is used for the https listener
+  Important to have redirect_http_to_https set to <span class="token boolean">true</span> as http authentication is only added to the https listener
+
+  load_balancing_properties_cognito_auth_enabled = <span class="token boolean">true</span>
+
+  ## cognito_user_pool_arn defines the cognito user pool arn for the added cognito authentication
+  load_balancing_properties_cognito_user_pool_arn = <span class="token string">&quot;${aws_cognito_user_pool.main.arn}&quot;</span>
+
+  # cognito_user_pool_client_id defines the cognito_user_pool_client_id
+  load_balancing_properties_cognito_user_pool_client_id = <span class="token string">&quot;${aws_cognito_user_pool_client.client.id}&quot;</span>
+
+  # cognito_user_pool_domain sets the domain of the cognito_user_pool
+  load_balancing_properties_cognito_user_pool_domain = <span class="token string">&quot;${aws_cognito_user_pool_domain.pool.id}&quot;</span>
+  ..
+  ..
+</code></pre></div><h3 id="network-lb-nlb"><a href="#network-lb-nlb" aria-hidden="true" class="header-anchor">#</a> Network LB ( NLB )</h3> <p>The Network Load Balancer (NLB) forwards TCP Traffic transparently to the ECS Tasks of an ECS Service. For an existing NLB the ECS Module creates a new NLB-Listener with a new LB Target Group as default. By default the listener port is set to port 80. It's not mandatory to use the NLB togeter with awsvpc network mode.</p> <div class="mermaid">
+graph LR
+    subgraph Module Scope
+    0
+    end
+    0[fa:fa-ban DNS Domain ecs_name.zone.tld]--&gt;B[fa:fa-ban NLB]
+    B--&gt;C[fa:fa-ban NLB Listener]
+    subgraph Module Scope
+    C--&gt;D[fa:fa-ban Target Group]
+    D--&gt;H[fa:fa-ban ECS Task N]
+    D--&gt;I[fa:fa-ban ECS Task N+1]
+    subgraph ECS Cluster
+    subgraph ECS Service
+    H
+    I
+    end
+    end
+    H-.-&gt;J[fa:fa-ban Task Definition:version]
+    I-.-&gt;J[fa:fa-ban Task Definition:version]
+    end
+</div> <div class="language-json extra-class"><pre class="language-json"><code>module <span class="token string">&quot;demo_web&quot;</span> <span class="token punctuation">{</span>
+    ..
+    ..
+    awsvpc_enabled = <span class="token boolean">true</span>
+    awsvpc_subnets            = <span class="token punctuation">[</span><span class="token string">&quot;${module.vpc.private_subnets}&quot;</span><span class="token punctuation">]</span>
+    awsvpc_security_group_ids = <span class="token punctuation">[</span><span class="token string">&quot;${module.demo_sg.this_security_group_id}&quot;</span><span class="token punctuation">]</span>
+
+
+    load_balancing_type = <span class="token string">&quot;network&quot;</span>
+    load_balancing_properties_lb_arn                = <span class="token string">&quot;${module.nlb.load_balancer_id}&quot;</span>
+    load_balancing_properties_lb_vpc_id             = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+    load_balancing_properties_route53_zone_id       = <span class="token string">&quot;${aws_route53_zone.shared_ext_services_domain.zone_id}&quot;</span>
+    # load_balancing_properties_unhealthy_threshold   = <span class="token string">&quot;3&quot;</span>
+    # load_balancing_properties_nlb_listener_port sets the port of the lb_listener
+    # load_balancing_properties_nlb_listener_port = <span class="token number">80</span>
+    ..
+    ..
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/airship.tf/guide/ecs_service/networking.html" class="prev">
+          Networking
+        </a></span> <span class="next"><a href="/airship.tf/guide/ecs_service/service_discovery.html">
+          Service Discovery
+        </a>
+        →
+      </span></p></div> </div></div><div class="global-ui"></div></div>
+    <script src="/airship.tf/assets/js/app.4cee3cc5.js" defer></script><script src="/airship.tf/assets/js/20.c5c3716d.js" defer></script><script src="/airship.tf/assets/js/12.eb597dd5.js" defer></script><script src="/airship.tf/assets/js/23.67dd923d.js" defer></script>
+  </body>
+</html>

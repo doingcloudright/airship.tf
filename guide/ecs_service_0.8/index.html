@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ECS Service | Airship Modules</title>
+    <meta name="description" content="Flexible Terraform templates help setting up your Docker Orchestration platform, resources 100% supported by Amazon">
+    
+    
+    <link rel="preload" href="/airship.tf/assets/css/0.styles.c084f234.css" as="style"><link rel="preload" href="/airship.tf/assets/js/app.4cee3cc5.js" as="script"><link rel="preload" href="/airship.tf/assets/js/20.c5c3716d.js" as="script"><link rel="preload" href="/airship.tf/assets/js/31.e2405844.js" as="script"><link rel="preload" href="/airship.tf/assets/js/23.67dd923d.js" as="script"><link rel="prefetch" href="/airship.tf/assets/js/1.965ea306.js"><link rel="prefetch" href="/airship.tf/assets/js/10.06dee672.js"><link rel="prefetch" href="/airship.tf/assets/js/11.28d6581f.js"><link rel="prefetch" href="/airship.tf/assets/js/12.eb597dd5.js"><link rel="prefetch" href="/airship.tf/assets/js/13.d2c0c577.js"><link rel="prefetch" href="/airship.tf/assets/js/14.eec9b810.js"><link rel="prefetch" href="/airship.tf/assets/js/15.147d7810.js"><link rel="prefetch" href="/airship.tf/assets/js/16.18ebfa36.js"><link rel="prefetch" href="/airship.tf/assets/js/17.d163eb79.js"><link rel="prefetch" href="/airship.tf/assets/js/2.07fac88e.js"><link rel="prefetch" href="/airship.tf/assets/js/21.f34d5b4a.js"><link rel="prefetch" href="/airship.tf/assets/js/22.3c8f8f25.js"><link rel="prefetch" href="/airship.tf/assets/js/24.dd4a7491.js"><link rel="prefetch" href="/airship.tf/assets/js/25.7ec91b0b.js"><link rel="prefetch" href="/airship.tf/assets/js/26.d04e78c1.js"><link rel="prefetch" href="/airship.tf/assets/js/27.5afa5ae2.js"><link rel="prefetch" href="/airship.tf/assets/js/28.019b8d38.js"><link rel="prefetch" href="/airship.tf/assets/js/29.0ab72ade.js"><link rel="prefetch" href="/airship.tf/assets/js/3.45ad0597.js"><link rel="prefetch" href="/airship.tf/assets/js/30.3ab445cb.js"><link rel="prefetch" href="/airship.tf/assets/js/32.a45f980f.js"><link rel="prefetch" href="/airship.tf/assets/js/33.532d1160.js"><link rel="prefetch" href="/airship.tf/assets/js/34.b30eeb32.js"><link rel="prefetch" href="/airship.tf/assets/js/35.9fa3ec65.js"><link rel="prefetch" href="/airship.tf/assets/js/36.b2b1fdd5.js"><link rel="prefetch" href="/airship.tf/assets/js/37.526a455a.js"><link rel="prefetch" href="/airship.tf/assets/js/38.7c311cbd.js"><link rel="prefetch" href="/airship.tf/assets/js/39.79e10685.js"><link rel="prefetch" href="/airship.tf/assets/js/4.47100ef6.js"><link rel="prefetch" href="/airship.tf/assets/js/40.81e3d38e.js"><link rel="prefetch" href="/airship.tf/assets/js/41.ada57e2d.js"><link rel="prefetch" href="/airship.tf/assets/js/42.b53f97fd.js"><link rel="prefetch" href="/airship.tf/assets/js/43.522e7415.js"><link rel="prefetch" href="/airship.tf/assets/js/44.faa0ea91.js"><link rel="prefetch" href="/airship.tf/assets/js/45.b12c9c87.js"><link rel="prefetch" href="/airship.tf/assets/js/5.5f33e6ff.js"><link rel="prefetch" href="/airship.tf/assets/js/6.b876cc7d.js"><link rel="prefetch" href="/airship.tf/assets/js/7.9de6e1cc.js"><link rel="prefetch" href="/airship.tf/assets/js/8.72121fe3.js"><link rel="prefetch" href="/airship.tf/assets/js/9.f18940a9.js"><link rel="prefetch" href="/airship.tf/assets/js/vendors~docsearch.259d7d1e.js">
+    <link rel="stylesheet" href="/airship.tf/assets/css/0.styles.c084f234.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/airship.tf/" class="home-link router-link-active"><img src="/airship.tf/airship.png" alt="Airship Modules" class="logo"> <span class="site-name can-hide">Airship Modules</span></a> <div class="links"><form id="search-form" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/airship.tf/" class="nav-link">Home</a></div><div class="nav-item"><a href="/airship.tf/introduction/" class="nav-link">Introduction</a></div><div class="nav-item"><a href="/airship.tf/getting_started/" class="nav-link">Getting Started</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Start</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_cluster/" class="nav-link">ECS Cluster</a></li><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_service/" class="nav-link">ECS Service</a></li></ul></li></ul></div></div> <a href="https://github.com/blinkist/terraform-aws-airship-ecs-service" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/airship.tf/" class="nav-link">Home</a></div><div class="nav-item"><a href="/airship.tf/introduction/" class="nav-link">Introduction</a></div><div class="nav-item"><a href="/airship.tf/getting_started/" class="nav-link">Getting Started</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Start</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_cluster/" class="nav-link">ECS Cluster</a></li><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_service/" class="nav-link">ECS Service</a></li></ul></li></ul></div></div> <a href="https://github.com/blinkist/terraform-aws-airship-ecs-service" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <!----> </div> <div class="page"> <div class="content default"><h1 id="ecs-service"><a href="#ecs-service" aria-hidden="true" class="header-anchor">#</a> ECS Service</h1> <div></div> <h2 id="introduction"><a href="#introduction" aria-hidden="true" class="header-anchor">#</a> Introduction</h2> <p>This module will create an ECS Service within an existing ECS Cluster and takes care of connecting it to a Load Balancer if configured to. It's highly configurable as there are many ways to operate an ECS Service. This Guide will go through most if not all of the configuration options the module supports. If you have questions, please join the #Airship channel on <a href="http://sweetops.slack.com" target="_blank" rel="noopener noreferrer">Sweetops Slack<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> or create an issue <a href="https://github.com/blinkist/terraform-aws-airship-ecs-service/issues" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>!</p> <h2 id="contributing"><a href="#contributing" aria-hidden="true" class="header-anchor">#</a> Contributing</h2> <p>We are happy with contributions! If you see a bug or a lacking feature, feel free to submit a PR. Discussing your ideas first will of course help getting your PR through quicker! Please understand that the module should have as little breaking changes possible within this major release. With HCL2 ( Terraform 0.12 ) breaking changes seem to be inevitable and for this major release, refactoring with new ideas is of course much welcomed.</p> <h2 id="naming-matters"><a href="#naming-matters" aria-hidden="true" class="header-anchor">#</a> Naming Matters</h2> <p>The name you choose for the ECS Service will be interpolated into different resources, for example the Application Load Balancer target groups. Certain AWS resources have a name limitation of 32 characters hence it's important to be economical with the amount of chars you allocate to the cluster name. Once a service has been created it's not possible to rename it, plan wisely.</p> <h2 id="architecture"><a href="#architecture" aria-hidden="true" class="header-anchor">#</a> Architecture</h2> <p>ALB Connected ECS Service
+</p><div class="mermaid">
+graph LR
+subgraph Module Scope
+0
+end
+0[fa:fa-ban DNS Domain ecs_name.zone.tld]--&gt;B[fa:fa-ban ALB]
+B--&gt;C[fa:fa-ban ALB HTTP Listener]
+B--&gt;D[fa:fa-ban ALB HTTPS Listener]
+C--&gt;E[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+D--&gt;F[fa:fa-ban LB Listener Rule for ecs_name.zone.tld]
+C--&gt;L[fa:fa-ban LB Listener Rule for custom_domains optional]
+D--&gt;M[fa:fa-ban LB Listener Rule for custom_domains optional]
+subgraph Module Scope
+E--&gt;G[fa:fa-ban Target Group]
+F--&gt;G[fa:fa-ban Target Group]
+L--&gt;G[fa:fa-ban Target Group]
+M--&gt;G[fa:fa-ban Target Group]
+G--&gt;H[fa:fa-ban ECS Service]
+G--&gt;I[fa:fa-ban ECS Service]
+subgraph ECS Cluster
+subgraph ECS Service
+H[fa:fa-ban ECS Task N]
+I[fa:fa-ban ECS Task N+1]
+end
+end
+H-.-&gt;J[fa:fa-ban Task Definition:version]
+I-.-&gt;J[fa:fa-ban Task Definition:version]
+end
+</div><p></p> <h2 id="full-example"><a href="#full-example" aria-hidden="true" class="header-anchor">#</a> Full Example</h2> <div class="language-json extra-class"><pre class="language-json"><code>module <span class="token string">&quot;demo_web&quot;</span> <span class="token punctuation">{</span>
+  source  = <span class="token string">&quot;blinkist/airship-ecs-service/aws&quot;</span>
+  version = <span class="token string">&quot;0.8.6&quot;</span>
+
+  name   = <span class="token string">&quot;demo-web&quot;</span>
+
+  ecs_cluster_id = <span class="token string">&quot;${local.cluster_id}&quot;</span>
+
+  region = <span class="token string">&quot;${local.region}&quot;</span>
+
+  fargate_enabled = <span class="token boolean">true</span>
+
+  # scheduling_strategy = <span class="token string">&quot;REPLICA&quot;</span>
+
+  # AWSVPC Block<span class="token punctuation">,</span> with awsvpc_subnets defined the network_mode for the ECS task definition will be awsvpc<span class="token punctuation">,</span> defaults to bridge
+  awsvpc_enabled = <span class="token boolean">true</span>
+  awsvpc_subnets            = <span class="token punctuation">[</span><span class="token string">&quot;${module.vpc.private_subnets}&quot;</span><span class="token punctuation">]</span>
+  awsvpc_security_group_ids = <span class="token punctuation">[</span><span class="token string">&quot;${module.demo_sg.this_security_group_id}&quot;</span><span class="token punctuation">]</span>
+
+  # load_balancing_enabled sets if a load balancer will be attached to the ecs service / target group
+  load_balancing_type = <span class="token string">&quot;application&quot;</span>
+  load_balancing_properties <span class="token punctuation">{</span>
+    # The default route53 record type<span class="token punctuation">,</span> can be CNAME<span class="token punctuation">,</span> ALIAS or NONE
+    # route53_record_type = <span class="token string">&quot;ALIAS&quot;</span>
+
+    # Unique identifier for the weighted IN A Alias Record
+    # route53_a_record_identifier = <span class="token string">&quot;identifier&quot;</span>
+
+    # The ARN of the ALB<span class="token punctuation">,</span> when left-out the service<span class="token punctuation">,</span> will not be attached to a load-balance
+    lb_arn                = <span class="token string">&quot;${module.alb_shared_services_ext.load_balancer_id}&quot;</span>
+    # https listener ARN
+    lb_listener_arn_https = <span class="token string">&quot;${element(module.alb_shared_services_ext.https_listener_arns,0)}&quot;</span>
+
+    # http listener ARN
+    lb_listener_arn       = <span class="token string">&quot;${element(module.alb_shared_services_ext.http_tcp_listener_arns,0)}&quot;</span>
+
+    # The VPC_ID the target_group is being created in
+    lb_vpc_id             = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+
+    # The route53 zone for which we create a subdomain
+    route53_zone_id       = <span class="token string">&quot;${aws_route53_zone.shared_ext_services_domain.zone_id}&quot;</span>
+
+    # After which threshold in health check is the task marked as unhealthy<span class="token punctuation">,</span> defaults to <span class="token number">3</span>
+    # unhealthy_threshold   = <span class="token string">&quot;3&quot;</span>
+
+    # health_uri defines which health-check uri the target group needs to check on for health_check<span class="token punctuation">,</span> defaults to /ping
+    # health_uri = <span class="token string">&quot;/ping&quot;</span>
+
+    # The amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is <span class="token number">0</span>-<span class="token number">3600</span> seconds.
+    # deregistration_delay = <span class="token string">&quot;300&quot;</span>
+
+    # Creates a listener rule which redirects to https
+    # redirect_http_to_https = <span class="token boolean">false</span>
+
+    # cognito_auth_enabled is set when cognito authentication is used for the https listener
+    # Important to have redirect_http_to_https set to <span class="token boolean">true</span> as http authentication is only added to the https listener
+
+    # cognito_auth_enabled = <span class="token boolean">false</span>
+
+    # cognito_user_pool_arn defines the cognito user pool arn for the added cognito authentication
+    # cognito_user_pool_arn = <span class="token string">&quot;&quot;</span>
+
+    # cognito_user_pool_client_id defines the cognito_user_pool_client_id
+    # cognito_user_pool_client_id = <span class="token string">&quot;&quot;</span>
+
+    # cognito_user_pool_domain sets the domain of the cognito_user_pool
+    # cognito_user_pool_domain = <span class="token string">&quot;&quot;</span>
+  <span class="token punctuation">}</span>
+
+  # custom_listen_hosts defines extra listener rules to route to the ALB Targetgroup
+  custom_listen_hosts    = <span class="token punctuation">[</span><span class="token string">&quot;www.example.com&quot;</span><span class="token punctuation">]</span>
+
+  container_cpu    = <span class="token number">256</span>
+  container_memory = <span class="token number">512</span>
+  container_port   = <span class="token number">80</span>
+
+  # force_bootstrap_container_image to <span class="token boolean">true</span> will force the deployment to use var.bootstrap_container_image as container_image
+  # if container_image is already deployed<span class="token punctuation">,</span> no actual service update will happen
+  # force_bootstrap_container_image = <span class="token boolean">false</span>
+  bootstrap_container_image = <span class="token string">&quot;nginx:stable&quot;</span>
+
+  # Initial ENV Variables for the ECS Task definition
+  container_envvars  <span class="token punctuation">{</span>
+       TASK_TYPE = <span class="token string">&quot;web&quot;</span>
+  <span class="token punctuation">}</span>
+
+  # capacity_properties defines the size in task for the ECS Service.
+  # Without scaling enabled<span class="token punctuation">,</span> desired_capacity is the only necessary property<span class="token punctuation">,</span> defaults to <span class="token number">2</span>
+  # With scaling enabled<span class="token punctuation">,</span> desired_min_capacity and desired_max_capacity define the lower and upper boundary in task size
+  capacity_properties <span class="token punctuation">{</span>
+    #desired_capacity     = <span class="token string">&quot;2&quot;</span>
+    #desired_min_capacity = <span class="token string">&quot;2&quot;</span>
+    #desired_max_capacity = <span class="token string">&quot;2&quot;</span>
+  <span class="token punctuation">}</span>
+
+  # https<span class="token operator">:</span>//docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html
+  scaling_properties = <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      type               = <span class="token string">&quot;CPUUtilization&quot;</span>
+      direction          = <span class="token string">&quot;up&quot;</span>
+      evaluation_periods = <span class="token string">&quot;2&quot;</span>
+      observation_period = <span class="token string">&quot;300&quot;</span>
+      statistic          = <span class="token string">&quot;Average&quot;</span>
+      threshold          = <span class="token string">&quot;89&quot;</span>
+      cooldown           = <span class="token string">&quot;900&quot;</span>
+      adjustment_type    = <span class="token string">&quot;ChangeInCapacity&quot;</span>
+      scaling_adjustment = <span class="token string">&quot;1&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      type               = <span class="token string">&quot;CPUUtilization&quot;</span>
+      direction          = <span class="token string">&quot;down&quot;</span>
+      evaluation_periods = <span class="token string">&quot;4&quot;</span>
+      observation_period = <span class="token string">&quot;300&quot;</span>
+      statistic          = <span class="token string">&quot;Average&quot;</span>
+      threshold          = <span class="token string">&quot;10&quot;</span>
+      cooldown           = <span class="token string">&quot;300&quot;</span>
+      adjustment_type    = <span class="token string">&quot;ChangeInCapacity&quot;</span>
+      scaling_adjustment = <span class="token string">&quot;-1&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+
+  # ecs_cron_tasks holds a list of maps defining scheduled jobs
+  # when ecs_cron_tasks holds at least one 'job' a lambda will be created which will
+  # trigger jobs with the currently running task definition. The given command will be used
+  # to override the CMD in the dockerfile. The lambda will prepend this command with <span class="token punctuation">[</span><span class="token string">&quot;/bin/sh&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;-c&quot;</span> <span class="token punctuation">]</span>
+  # ecs_cron_tasks = <span class="token punctuation">[</span><span class="token punctuation">{</span>
+  #   # name of the scheduled task
+  #   job_name            = <span class="token string">&quot;vacuum_db&quot;</span>
+  #   # expression defined in
+  #   # http<span class="token operator">:</span>//docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+  #   schedule_expression = <span class="token string">&quot;cron(0 12 * * ? *)&quot;</span>
+  #
+  #   # command defines the command which needs to run inside the docker container
+  #   command             = <span class="token string">&quot;/usr/local/bin/vacuum_db&quot;</span>
+  # <span class="token punctuation">}</span><span class="token punctuation">]</span>
+
+
+  # The KMS Keys which can be used for kms<span class="token operator">:</span>decrypt
+  kms_keys  = <span class="token punctuation">[</span><span class="token string">&quot;${module.global-kms.aws_kms_key_arn}&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;${module.demo-kms.aws_kms_key_arn}&quot;</span><span class="token punctuation">]</span>
+
+  # The SSM paths for which the service will be allowed to ssm<span class="token operator">:</span>GetParameter and ssm<span class="token operator">:</span>GetParametersByPath on
+  #
+  # https<span class="token operator">:</span>//medium.com/@tdi/ssm-parameter-store-for-keeping-secrets-in-a-structured-way-<span class="token number">53</span>a25d48166a
+  # <span class="token string">&quot;arn:aws:ssm:region:123456:parameter/application/%s/*&quot;</span>
+  #TODO
+  ssm_paths = <span class="token punctuation">[</span><span class="token string">&quot;${module.global-kms.name}&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;${module.demo-kms.name}&quot;</span><span class="token punctuation">]</span>
+
+  # s3_ro_paths define which paths on S3 can be accessed from the ecs service in read-only fashion.
+  s3_ro_paths = <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  # s3_ro_paths define which paths on S3 can be accessed from the ecs service in read-write fashion.
+  s3_rw_paths = <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div></div><div class="global-ui"></div></div>
+    <script src="/airship.tf/assets/js/app.4cee3cc5.js" defer></script><script src="/airship.tf/assets/js/20.c5c3716d.js" defer></script><script src="/airship.tf/assets/js/31.e2405844.js" defer></script><script src="/airship.tf/assets/js/23.67dd923d.js" defer></script>
+  </body>
+</html>

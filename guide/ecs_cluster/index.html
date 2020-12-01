@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ECS Cluster | Airship Modules</title>
+    <meta name="description" content="Flexible Terraform templates help setting up your Docker Orchestration platform, resources 100% supported by Amazon">
+    
+    
+    <link rel="preload" href="/airship.tf/assets/css/0.styles.c084f234.css" as="style"><link rel="preload" href="/airship.tf/assets/js/app.4cee3cc5.js" as="script"><link rel="preload" href="/airship.tf/assets/js/20.c5c3716d.js" as="script"><link rel="preload" href="/airship.tf/assets/js/28.019b8d38.js" as="script"><link rel="prefetch" href="/airship.tf/assets/js/1.965ea306.js"><link rel="prefetch" href="/airship.tf/assets/js/10.06dee672.js"><link rel="prefetch" href="/airship.tf/assets/js/11.28d6581f.js"><link rel="prefetch" href="/airship.tf/assets/js/12.eb597dd5.js"><link rel="prefetch" href="/airship.tf/assets/js/13.d2c0c577.js"><link rel="prefetch" href="/airship.tf/assets/js/14.eec9b810.js"><link rel="prefetch" href="/airship.tf/assets/js/15.147d7810.js"><link rel="prefetch" href="/airship.tf/assets/js/16.18ebfa36.js"><link rel="prefetch" href="/airship.tf/assets/js/17.d163eb79.js"><link rel="prefetch" href="/airship.tf/assets/js/2.07fac88e.js"><link rel="prefetch" href="/airship.tf/assets/js/21.f34d5b4a.js"><link rel="prefetch" href="/airship.tf/assets/js/22.3c8f8f25.js"><link rel="prefetch" href="/airship.tf/assets/js/23.67dd923d.js"><link rel="prefetch" href="/airship.tf/assets/js/24.dd4a7491.js"><link rel="prefetch" href="/airship.tf/assets/js/25.7ec91b0b.js"><link rel="prefetch" href="/airship.tf/assets/js/26.d04e78c1.js"><link rel="prefetch" href="/airship.tf/assets/js/27.5afa5ae2.js"><link rel="prefetch" href="/airship.tf/assets/js/29.0ab72ade.js"><link rel="prefetch" href="/airship.tf/assets/js/3.45ad0597.js"><link rel="prefetch" href="/airship.tf/assets/js/30.3ab445cb.js"><link rel="prefetch" href="/airship.tf/assets/js/31.e2405844.js"><link rel="prefetch" href="/airship.tf/assets/js/32.a45f980f.js"><link rel="prefetch" href="/airship.tf/assets/js/33.532d1160.js"><link rel="prefetch" href="/airship.tf/assets/js/34.b30eeb32.js"><link rel="prefetch" href="/airship.tf/assets/js/35.9fa3ec65.js"><link rel="prefetch" href="/airship.tf/assets/js/36.b2b1fdd5.js"><link rel="prefetch" href="/airship.tf/assets/js/37.526a455a.js"><link rel="prefetch" href="/airship.tf/assets/js/38.7c311cbd.js"><link rel="prefetch" href="/airship.tf/assets/js/39.79e10685.js"><link rel="prefetch" href="/airship.tf/assets/js/4.47100ef6.js"><link rel="prefetch" href="/airship.tf/assets/js/40.81e3d38e.js"><link rel="prefetch" href="/airship.tf/assets/js/41.ada57e2d.js"><link rel="prefetch" href="/airship.tf/assets/js/42.b53f97fd.js"><link rel="prefetch" href="/airship.tf/assets/js/43.522e7415.js"><link rel="prefetch" href="/airship.tf/assets/js/44.faa0ea91.js"><link rel="prefetch" href="/airship.tf/assets/js/45.b12c9c87.js"><link rel="prefetch" href="/airship.tf/assets/js/5.5f33e6ff.js"><link rel="prefetch" href="/airship.tf/assets/js/6.b876cc7d.js"><link rel="prefetch" href="/airship.tf/assets/js/7.9de6e1cc.js"><link rel="prefetch" href="/airship.tf/assets/js/8.72121fe3.js"><link rel="prefetch" href="/airship.tf/assets/js/9.f18940a9.js"><link rel="prefetch" href="/airship.tf/assets/js/vendors~docsearch.259d7d1e.js">
+    <link rel="stylesheet" href="/airship.tf/assets/css/0.styles.c084f234.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/airship.tf/" class="home-link router-link-active"><img src="/airship.tf/airship.png" alt="Airship Modules" class="logo"> <span class="site-name can-hide">Airship Modules</span></a> <div class="links"><form id="search-form" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/airship.tf/" class="nav-link">Home</a></div><div class="nav-item"><a href="/airship.tf/introduction/" class="nav-link">Introduction</a></div><div class="nav-item"><a href="/airship.tf/getting_started/" class="nav-link">Getting Started</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Start</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_cluster/" class="nav-link router-link-exact-active router-link-active">ECS Cluster</a></li><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_service/" class="nav-link">ECS Service</a></li></ul></li></ul></div></div> <a href="https://github.com/blinkist/terraform-aws-airship-ecs-service" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/airship.tf/" class="nav-link">Home</a></div><div class="nav-item"><a href="/airship.tf/introduction/" class="nav-link">Introduction</a></div><div class="nav-item"><a href="/airship.tf/getting_started/" class="nav-link">Getting Started</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Guide</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Start</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_cluster/" class="nav-link router-link-exact-active router-link-active">ECS Cluster</a></li><li class="dropdown-subitem"><a href="/airship.tf/guide/ecs_service/" class="nav-link">ECS Service</a></li></ul></li></ul></div></div> <a href="https://github.com/blinkist/terraform-aws-airship-ecs-service" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>ECS Cluster</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/airship.tf/guide/ecs_cluster/" class="active sidebar-link">ECS Cluster</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/#launch-types" class="sidebar-link">Launch Types</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/#terraform-implementation" class="sidebar-link">Terraform Implementation</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/#vpc" class="sidebar-link">VPC</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/#security-groups" class="sidebar-link">Security Groups</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/#ecs-cluster-module" class="sidebar-link">ECS Cluster Module</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/#ecs-cluster-scaling" class="sidebar-link">ECS Cluster Scaling</a></li></ul></li></ul></li><li><a href="/airship.tf/guide/ecs_cluster/fargate_launchtype.html" class="sidebar-link">Fargate</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/fargate_launchtype.html#introduction" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/airship.tf/guide/ecs_cluster/fargate_launchtype.html#terraform-implementation" class="sidebar-link">Terraform Implementation</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content default"><h1 id="ecs-cluster"><a href="#ecs-cluster" aria-hidden="true" class="header-anchor">#</a> ECS Cluster</h1> <h2 id="introduction"><a href="#introduction" aria-hidden="true" class="header-anchor">#</a> Introduction</h2> <p>The ECS Cluster is an AWS managed docker container scheduler. The scheduler manages how ECS Services and ECS Tasks are working on either AWS Managed Infrastructure (Fargate) or on EC2 instances. To have ECS Services running on EC2 Instances, EC2 Instances need to be prepared with an ECS Agent, a service which communicates with the ECS Scheduler.</p> <p>In every region AWS Provides with specific Amazon Linux AMI's made for running ECS. These Images need little bootstrap user-data to become configured as ECS Instance. To make sure the EC2 Instances belonging to an ECS Cluster are fault-tolerant and to give them the ability to scale the EC2 Instances are part of an Autoscaling Group.</p> <p>An EC2 Instance Profile together with an IAM role for the ECS-Agent make sure the ECS Agent has the permissions to communicate with the ECS Scheduler and to receive be able to get an ecr GetAuthorizationToken to be able to pull images from ECR Repositories.</p> <h2 id="launch-types"><a href="#launch-types" aria-hidden="true" class="header-anchor">#</a> Launch Types</h2> <p>On page [link] we discuss the settings for the Fargate Launch type, the page will focus on running ECS Services on top EC2 instances. It's important to know that the ECS Cluster Module is always configured for the Fargate Launch type either way. This pages will discuss the configuration for having EC2 Intances as ECS Backend.</p> <h2 id="terraform-implementation"><a href="#terraform-implementation" aria-hidden="true" class="header-anchor">#</a> Terraform Implementation</h2> <div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>The name you choose for the ECS Cluster will be interpolated into different resources, for example the Application Load Balancer target groups. Certain AWS resources have a name limitation of 32 characters hence it's important to be economical with the amount of chars you allocate to the cluster name. Once a cluster has been created it's not possible to rename it, plan wisely.</p></div> <h3 id="vpc"><a href="#vpc" aria-hidden="true" class="header-anchor">#</a> VPC</h3> <p>For EC2 Instances to operate properly we need a VPC and a few other things. Make sure to adjust the values according to your region and capacity wishes.</p> <div class="language-json extra-class"><pre class="language-json"><code># VPC Definition
+module <span class="token string">&quot;vpc&quot;</span> <span class="token punctuation">{</span>
+  source  = <span class="token string">&quot;terraform-aws-modules/vpc/aws&quot;</span>
+  version = <span class="token string">&quot;1.46.0&quot;</span>
+
+  name = <span class="token string">&quot;ecs-vpc&quot;</span>
+  cidr = <span class="token string">&quot;10.50.0.0/16&quot;</span>
+
+  azs             = <span class="token punctuation">[</span><span class="token string">&quot;eu-central-1a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;eu-central-1b&quot;</span><span class="token punctuation">]</span>
+  public_subnets  = <span class="token punctuation">[</span><span class="token string">&quot;10.50.11.0/24&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;10.50.12.0/24&quot;</span><span class="token punctuation">]</span>
+  private_subnets = <span class="token punctuation">[</span><span class="token string">&quot;10.50.21.0/24&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;10.50.22.0/24&quot;</span><span class="token punctuation">]</span>
+
+  single_nat_gateway = <span class="token boolean">true</span>
+
+  enable_nat_gateway   = <span class="token boolean">true</span>
+  enable_vpn_gateway   = <span class="token boolean">false</span>
+  enable_dns_hostnames = <span class="token boolean">true</span>
+
+  tags = <span class="token punctuation">{</span>
+    Terraform   = <span class="token string">&quot;true&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="security-groups"><a href="#security-groups" aria-hidden="true" class="header-anchor">#</a> Security Groups</h3> <p>ECS will have network components just like EC2, in this example we need create a security group for the load balancer, a security group for the ECS Cluster nodes. With dynamic port mapping the ECS Docker containers have ports allocated at the EC2 instance in a range 32768-65535.</p> <div class="language-json extra-class"><pre class="language-json"><code>resource <span class="token string">&quot;aws_security_group&quot;</span> <span class="token string">&quot;lb_sg&quot;</span> <span class="token punctuation">{</span>
+  name        = <span class="token string">&quot;load-balancer-sg&quot;</span>
+  description = <span class="token string">&quot;Allow all inbound traffic to http and https&quot;</span>
+  vpc_id      = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+
+  ingress <span class="token punctuation">{</span>
+    from_port    = <span class="token number">80</span>
+    to_port      = <span class="token number">80</span>
+    protocol     = <span class="token string">&quot;tcp&quot;</span>
+    cidr_blocks  = <span class="token punctuation">[</span><span class="token string">&quot;0.0.0.0/0&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  ingress <span class="token punctuation">{</span>
+    from_port    = <span class="token number">443</span>
+    to_port      = <span class="token number">443</span>
+    protocol     = <span class="token string">&quot;tcp&quot;</span>
+    cidr_blocks  = <span class="token punctuation">[</span><span class="token string">&quot;0.0.0.0/0&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  egress <span class="token punctuation">{</span>
+    from_port   = <span class="token number">0</span>
+    to_port     = <span class="token number">0</span>
+    protocol    = <span class="token string">&quot;-1&quot;</span>
+    cidr_blocks = <span class="token punctuation">[</span><span class="token string">&quot;0.0.0.0/0&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+  tags <span class="token punctuation">{</span>
+    Name = <span class="token string">&quot;load-balancer-sg&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>The security group <code>ecs-instances-sg</code> only allows incoming traffic on 32768-65535 coming from the Load Balancer security group and has no restrictions outgoing.</p> <div class="language-json extra-class"><pre class="language-json"><code>resource <span class="token string">&quot;aws_security_group&quot;</span> <span class="token string">&quot;ecs_instances_sg&quot;</span> <span class="token punctuation">{</span>
+  name        = <span class="token string">&quot;ecs-instances-sg&quot;</span>
+  description = <span class="token string">&quot;Allow all inbound traffic to dyamic ports&quot;</span>
+  vpc_id      = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+
+  ingress <span class="token punctuation">{</span>
+    from_port       = <span class="token number">32768</span>
+    to_port         = <span class="token number">65535</span>
+    protocol        = <span class="token string">&quot;tcp&quot;</span>
+    security_groups = <span class="token punctuation">[</span><span class="token string">&quot;${aws_security_group.lb_sg.id}&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  egress <span class="token punctuation">{</span>
+    from_port   = <span class="token number">0</span>
+    to_port     = <span class="token number">0</span>
+    protocol    = <span class="token string">&quot;-1&quot;</span>
+    cidr_blocks = <span class="token punctuation">[</span><span class="token string">&quot;0.0.0.0/0&quot;</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+
+  tags <span class="token punctuation">{</span>
+    Name = <span class="token string">&quot;ecs-instances-sg&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="ecs-cluster-module"><a href="#ecs-cluster-module" aria-hidden="true" class="header-anchor">#</a> ECS Cluster Module</h3> <p>The following code block creates an ECS Cluster with an Autoscaling Group (ASG) and its instances in the designated VPC and subnets. The instances will automatically be assigned with the given security groups ids. For security hardening purposes the EC2 metadata service can be blocked of by setting block_metadata_service to true.</p> <p>By default the module sets <code>user_data</code> for the launch configuration of the ASG to make sure the instances bootstrap in a certain way. Part of the userdata is the configuration of /etc/ecs/ecs.config which is the config file of the ECS Agent. By setting <code>ec2_custom_userdata</code> with bash formatted script you can extend the bootprocess, for example, adding users and their public keys.</p> <div class="language-json extra-class"><pre class="language-json"><code>module <span class="token string">&quot;ecs_web&quot;</span> <span class="token punctuation">{</span>
+  source  = <span class="token string">&quot;blinkist/airship-ecs-cluster/aws&quot;</span>
+  version = <span class="token string">&quot;0.5.1&quot;</span>
+
+  # name is re-used as a unique identifier for the creation of different resources
+  name            = <span class="token string">&quot;NAME&quot;</span>
+
+  vpc_id          = <span class="token string">&quot;${module.vpc.vpc_id}&quot;</span>
+  subnet_ids      = <span class="token punctuation">[</span><span class="token string">&quot;${module.vpc.private_subnets}&quot;</span><span class="token punctuation">]</span>
+
+  cluster_properties <span class="token punctuation">{</span>
+    # ec2_key_name defines the keypair
+    ec2_key_name = <span class="token string">&quot;${aws_key_pair.main.key_name}&quot;</span>
+    # ec2_instance_type defines the instance type
+    ec2_instance_type = <span class="token string">&quot;t2.small&quot;</span>
+    # ec2_custom_userdata sets the launch configuration userdata for the EC2 instances
+    ec2_custom_userdata = <span class="token string">&quot;&quot;</span>
+    # ec2_asg_min defines the minimum size of the autoscaling group
+    ec2_asg_min = <span class="token string">&quot;2&quot;</span>
+    # ec2_asg_max defines the maximum size of the autoscaling group
+    ec2_asg_max = <span class="token string">&quot;4&quot;</span>
+    # ec2_disk_size defines the size in GB of the non-root volume of the EC2 Instance
+    ec2_disk_size = <span class="token string">&quot;100&quot;</span>
+    # ec2_disk_type defines the disktype of that EBS Volume
+    ec2_disk_type = <span class="token string">&quot;gp2&quot;</span>
+    # ec2_disk_encryption = <span class="token string">&quot;true&quot;</span>
+
+    # block_metadata_service blocks the aws metadata service from the ECS Tasks <span class="token boolean">true</span> / <span class="token boolean">false</span><span class="token punctuation">,</span> this is preferred security wise
+    block_metadata_service = <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+
+  # vpc_security_group_ids defines the security groups for the ec2 instances.
+  vpc_security_group_ids = <span class="token punctuation">[</span><span class="token string">&quot;${module.ecs_instances_sg.this_security_group_id}&quot;</span><span class="token punctuation">]</span>
+
+
+  tags = <span class="token punctuation">{</span>
+	Environment = <span class="token string">&quot;Development&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="ecs-cluster-scaling"><a href="#ecs-cluster-scaling" aria-hidden="true" class="header-anchor">#</a> ECS Cluster Scaling</h3> <p>To configure the autoscaling group to scale up and down a few measures need to be taken. ECS Services which run inside the ECS Cluster need to be stopped and moved to other EC2 Nodes the moment the ECS Cluster is scaling down. A lambda function discussed in <a href="https://aws.amazon.com/blogs/compute/how-to-automate-container-instance-draining-in-amazon-ecs/" target="_blank" rel="noopener noreferrer">This AWS Blog Article<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> describes how that works. That Lambda has been made into a Terraform Module and can be used by different ECS Clusters in the same account.</p> <div class="language-json extra-class"><pre class="language-json"><code>module &quot;ecs_draining <span class="token punctuation">{</span>
+  source  = <span class="token string">&quot;blinkist/airship-ecs-instance-draining/aws&quot;</span>
+  version = <span class="token string">&quot;0.1.0&quot;</span>
+  name    = <span class="token string">&quot;drain&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>It's important to create apply this module before refering to it in the ecs cluster module.</p></div> <p>After applying the instance draining module, <code>ecs_instance_scaling_create</code> can be set to true and the module can refer to the <code>ecs_instance_draining_lambda_arn</code>. The parameter: <code>ecs_instance_scaling_properties</code> configures a list with maps with the scaling movements.</p> <p>https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html</p> <div class="language-json extra-class"><pre class="language-json"><code>module <span class="token string">&quot;ecs_web&quot;</span> <span class="token punctuation">{</span>
+  ..
+  ..
+  ..
+  # ecs_instance_scaling_create needs to be <span class="token boolean">true</span>
+  ecs_instance_scaling_create = <span class="token boolean">true</span>
+
+  # The lambda function which takes care of draining the ecs instance
+  ecs_instance_draining_lambda_arn = <span class="token string">&quot;${module.ecs_draining.lambda_function_arn}&quot;</span>
+
+  # ecs_instance_scaling_properties defines how the ECS Cluster scales up / down
+  ecs_instance_scaling_properties = <span class="token punctuation">[</span>
+   <span class="token punctuation">{</span>
+     type = <span class="token string">&quot;MemoryReservation&quot;</span>
+     direction = <span class="token string">&quot;up&quot;</span>
+     evaluation_periods = <span class="token number">2</span>
+     observation_period = <span class="token string">&quot;300&quot;</span>
+     statistic = <span class="token string">&quot;Average&quot;</span>
+     threshold = <span class="token string">&quot;50&quot;</span>
+     cooldown = <span class="token string">&quot;900&quot;</span>
+     adjustment_type = <span class="token string">&quot;ChangeInCapacity&quot;</span>
+     scaling_adjustment = <span class="token string">&quot;1&quot;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+   <span class="token punctuation">{</span>
+     type = <span class="token string">&quot;MemoryReservation&quot;</span>
+     direction = <span class="token string">&quot;down&quot;</span>
+     evaluation_periods = <span class="token number">4</span>
+     observation_period = <span class="token string">&quot;300&quot;</span>
+     statistic = <span class="token string">&quot;Average&quot;</span>
+     threshold = <span class="token string">&quot;10&quot;</span>
+     cooldown = <span class="token string">&quot;300&quot;</span>
+     adjustment_type = <span class="token string">&quot;ChangeInCapacity&quot;</span>
+     scaling_adjustment = <span class="token string">&quot;-1&quot;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+  ..
+  ..
+  ..
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/airship.tf/guide/ecs_cluster/fargate_launchtype.html">
+          Fargate
+        </a>
+        →
+      </span></p></div> </div></div><div class="global-ui"></div></div>
+    <script src="/airship.tf/assets/js/app.4cee3cc5.js" defer></script><script src="/airship.tf/assets/js/20.c5c3716d.js" defer></script><script src="/airship.tf/assets/js/28.019b8d38.js" defer></script>
+  </body>
+</html>
